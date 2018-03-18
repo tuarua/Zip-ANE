@@ -231,6 +231,7 @@ rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
 rm -r "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
 
-#"Frameworks/."
+echo "Packaging docs into ANE."
+zip "$pathtome/$PROJECTNAME.ane" -u docs/*
 
 echo "Finished."

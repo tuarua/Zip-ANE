@@ -42,7 +42,7 @@ class CompressTask(private val path: String,
             getFileList(directoryFile.listFiles())
             var bytes = 0L
             for (file in fileList) {
-                val fileName = file.first.substring(directory.length)
+                val fileName = file.first.substring(directory.length + 1)
                 sendEvent(CompressProgressEvent.PROGRESS,
                         gson.toJson(CompressProgressEvent(path, bytes, bytesTotal, fileName)))
                 bytes += file.second
