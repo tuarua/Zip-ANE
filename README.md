@@ -16,7 +16,7 @@ PS get_dependencies.ps1
 ##### Windows Installation - Important!
 * Copy the contents of the "c_sharp_libs_x86" folder into the bin folder of your AIRSDK. 
 
-The location of this will vary depending on your IDE. These dlls and other cef files need to reside in the folder where adl.exe is run from.
+The location of this will vary depending on your IDE. These dlls need to reside in the folder where adl.exe is run from.
 
 * This ANE was built with MS Visual Studio 2015. As such your machine (and user's machines) will need to have Microsoft Visual C++ 2015 Redistributable (x86) runtime installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48145
