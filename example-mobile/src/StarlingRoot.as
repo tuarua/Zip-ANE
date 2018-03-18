@@ -85,7 +85,7 @@ public class StarlingRoot extends Sprite {
             }
         }
     }
-    
+
     private function onInfoClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInfo);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
