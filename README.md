@@ -1,6 +1,15 @@
 # Zip-ANE
 
 Zip Adobe Air Native Extension for Windows, OSX, iOS 9.0+ and Android 19+.    
+This ANE provides an identical cross platform API for creating and extracting .zip files   
+
+[ASDocs Documentation](https://tuarua.github.io/asdocs/zipane/index.html)  
+
+-------------
+
+Much time, skill and effort has gone into this. Help support the project
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5UR2T52J633RC)
 
 -------------
 
@@ -9,7 +18,7 @@ Zip Adobe Air Native Extension for Windows, OSX, iOS 9.0+ and Android 19+.
 // Create a new zip file. 
 var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
 zipFile.addEventListener(CompressProgressEvent.PROGRESS, onCompressProgress);
- zipFile.addEventListener(CompressEvent.COMPLETE, onCompressComplete);
+zipFile.addEventListener(CompressEvent.COMPLETE, onCompressComplete);
 var zipSource:File = File.applicationStorageDirectory.resolvePath("zipme");
 zipFile.compress(zipSource);
 
@@ -24,7 +33,7 @@ private function onCompressComplete(event:CompressEvent):void {
 // extract a zip file
 var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
 zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
-}
+
 ````` 
 
 -------------
@@ -129,6 +138,13 @@ You will need:
 - Xcode 9.1 if you wish to edit the iOS source
 - wget on OSX
 - Powershell on Windows
+
+### Task List
+- [x] Zip file creation
+- [x] Zip file extraction
+- [ ] Zip file information
+- [ ] Zip file updating
+- [ ] Zip single entry extraction
 
 ### References
 * [https://github.com/marmelroy/Zip]
