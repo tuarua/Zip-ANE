@@ -31,5 +31,3 @@ native_extension/ane/build_asdocs.bat
 
 /release/
 /cache/
-/c_sharp_libs_x64/
-/c_sharp_libs_x86/
