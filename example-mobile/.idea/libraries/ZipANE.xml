@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ZipANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Zip-ANE/native_extension/ane/ZipANE.ane!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/zipane/index.html" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

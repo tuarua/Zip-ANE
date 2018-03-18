@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+    <id>com.tuarua.ZipANE</id>
+    <name>Zip ANE</name>
+    <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+    <versionNumber>0.0.1</versionNumber>
+    <platforms>
+        <platform name="iPhone-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libZipANE.a</nativeLibrary>
+                <initializer>TRZIPExtInizer</initializer>
+                <finalizer>TRZIPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="iPhone-x86">
+            <applicationDeployment>
+                <nativeLibrary>libZipANE.a</nativeLibrary>
+                <initializer>TRZIPExtInizer</initializer>
+                <finalizer>TRZIPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Windows-x86">
+            <applicationDeployment>
+                <nativeLibrary>ZipANE.dll</nativeLibrary>
+                <initializer>TRZIPExtInizer</initializer>
+                <finalizer>TRZIPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Windows-x86-64">
+            <applicationDeployment>
+                <nativeLibrary>ZipANE.dll</nativeLibrary>
+                <initializer>TRZIPExtInizer</initializer>
+                <finalizer>TRZIPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="MacOS-x86-64">
+            <applicationDeployment>
+                <nativeLibrary>ZipANE.framework</nativeLibrary>
+                <initializer>TRZIPExtInizer</initializer>
+                <finalizer>TRZIPExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.ZipANE</initializer>
+                <finalizer>com.tuarua.ZipANE</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.ZipANE</initializer>
+                <finalizer>com.tuarua.ZipANE</finalizer>
+            </applicationDeployment>
+        </platform>
+    </platforms>
+</extension>
