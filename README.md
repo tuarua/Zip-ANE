@@ -24,13 +24,13 @@ https://www.microsoft.com/en-us/download/details.aspx?id=48145
 * This ANE also uses .NET 4.6 Framework. As such your machine (and user's machines) will need to have to have this installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48130
 
-* For release builds, the cef_binaries_x86 and cef_sharp_libs_x86 files need to be packaged in the same folder as your exe.  
+* For release builds, the c_sharp_libs_x86 files need to be packaged in the same folder as your exe.  
 It is highly recommended you package your app for release using an installer.  
 
 ##### Windows 64bit
 
 AIR29 now includes 32bit and 64bit in the AIR SDK.
-However it appears adl.exe is 32bit only. Therefore when debugging use x86 version of the cef and cefsharp dlls.
+However it appears adl.exe is 32bit only. Therefore when debugging use x86 version of the csharp dlls.
 
 If you are using the 64bit version for release follow the above instructions replacing x86 with x64 where applicable
 
