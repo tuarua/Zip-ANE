@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$DOCUMENTS$/Zip-ANE/native_extension/ane/ZipANE.ane!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/zipane/index.html" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

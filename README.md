@@ -4,6 +4,31 @@ Zip Adobe Air Native Extension for Windows, OSX, iOS 9.0+ and Android 19+.
 
 -------------
 
+### Usage
+````actionscript
+// Create a new zip file. 
+var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
+zipFile.addEventListener(CompressProgressEvent.PROGRESS, onCompressProgress);
+ zipFile.addEventListener(CompressEvent.COMPLETE, onCompressComplete);
+var zipSource:File = File.applicationStorageDirectory.resolvePath("zipme");
+zipFile.compress(zipSource);
+
+private function onCompressProgress(event:CompressProgressEvent):void {
+    trace(event);
+}
+
+private function onCompressComplete(event:CompressEvent):void {
+    trace(event);
+}
+
+// extract a zip file
+var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
+zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
+}
+````` 
+
+-------------
+
 ## Windows
 
 #### The ANE + Dependencies

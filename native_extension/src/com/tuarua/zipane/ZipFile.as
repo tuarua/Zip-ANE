@@ -26,12 +26,19 @@ import flash.events.StatusEvent;
 import flash.filesystem.File;
 
 public class ZipFile extends EventDispatcher {
+    /** @private */
     private var path:String;
-    private var _numFiles:int;
+    //private var _numFiles:int;
     // private var _uncompressedSize:Number = -1;
+    /** @private */
     private var file:File;
+    /** @private */
     private var argsAsJSON:Object;
 
+    /** Creates a ZipFile reference.
+     *
+     * @param file The path to the zip file
+     */
     public function ZipFile(file:File) {
         if (file == null || getExtension(file) != "zip") {
             throw new ArgumentError("path must be of file type zip");
@@ -40,6 +47,10 @@ public class ZipFile extends EventDispatcher {
         this.path = file.nativePath;
     }
 
+    /** Creates a zip.
+     *
+     * @param directory Directory to create the zip file from
+     */
     public function compress(directory:File):void {
         if (!directory.exists) {
             trace("directory doesn't exist");
@@ -52,6 +63,10 @@ public class ZipFile extends EventDispatcher {
         }
     }
 
+    /** Extracts the zip.
+     *
+     * @param to Directory to extract the zip's files to
+     */
     public function extract(to:File):void {
         ZipANEContext.context.addEventListener(StatusEvent.STATUS, gotEvent);
         var theRet:* = ZipANEContext.context.call("extract", path, to.nativePath);
@@ -60,30 +75,34 @@ public class ZipFile extends EventDispatcher {
         }
     }
 
+    /** implements File.deleteFile() */
     public function deleteFile():void {
         if (file && file.exists) {
             file.deleteFile();
         }
     }
 
+    /** implements File.deleteFileAsync() */
     public function deleteFileAsync():void {
         if (file && file.exists) {
             file.deleteFileAsync();
         }
     }
 
+    /** Returns the size of the .zip file */
     public function get size():Number {
         return file && file.exists ? file.size : -1;
     }
 
+    /** Whether the .zip file exists */
     public function get exists():Boolean {
         return file ? file.exists : false;
     }
 
-    // entries.length
+   /* // entries.length
     public function get numFiles():int {
         return _numFiles;
-    }
+    }*/
 
     // convert to "entries"
     /*public function get uncompressedSize():Number {

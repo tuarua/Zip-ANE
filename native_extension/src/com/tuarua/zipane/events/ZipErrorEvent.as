@@ -18,7 +18,9 @@ import flash.events.ErrorEvent;
 
 public class ZipErrorEvent extends ErrorEvent {
     public static const ERROR:String = "ZIPANE.Error";
+    /** Path to the zip file */
     public var path:String;
+    /** @private */
     public function ZipErrorEvent(type:String, path:String, bubbles:Boolean = false, cancelable:Boolean = false, text:String = "", id:int = 0) {
         super(type, bubbles, cancelable, text, id);
         this.path = path;

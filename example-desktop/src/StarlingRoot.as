@@ -57,7 +57,7 @@ public class StarlingRoot extends Sprite {
         statusLabel = new TextField(stage.stageWidth, 100, "");
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
-        statusLabel.y = btnInfo.y + 75;
+        statusLabel.y = btnExtract.y + 75;
         addChild(statusLabel);
     }
 

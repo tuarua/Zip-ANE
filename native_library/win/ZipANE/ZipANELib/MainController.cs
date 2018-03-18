@@ -125,7 +125,7 @@ namespace ZipLib {
                         var bytes = 0L;
                         foreach (var file in sourceFiles) {
                             SendEvent(CompressProgressEvent.Progress,
-                                GetProgressEventJson(path, bytes, bytesTotal, file.FullName));
+                                GetProgressEventJson(path, bytes, bytesTotal, file.FullName.Substring(directory.Length + 1)));
                             bytes += file.Length;
 
                             var entryName = file.FullName.Substring(directory.Length + 1);

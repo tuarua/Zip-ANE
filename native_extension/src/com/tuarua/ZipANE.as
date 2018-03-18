@@ -15,6 +15,7 @@
  */
 package com.tuarua {
 public final class ZipANE {
+    /** Disposes the ANE */
     public static function dispose():void {
         if (ZipANEContext.context) {
             ZipANEContext.dispose();

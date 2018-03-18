@@ -18,18 +18,19 @@ import flash.events.Event;
 
 public class ExtractEvent extends Event {
     public static const COMPLETE:String = "ZIPANE.OnExtractComplete";
+    /** Path to the zip file */
     public var path:String;
-
+    /** @private */
     public function ExtractEvent(type:String, path:String = null,
                                  bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
         this.path = path;
     }
-
+    /** @private */
     public override function clone():Event {
         return new CompressEvent(type, this.path, bubbles, cancelable);
     }
-
+    /** @private */
     public override function toString():String {
         return formatToString("ExtractEvent", "type", "path", "bubbles", "cancelable");
     }

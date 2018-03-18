@@ -19,14 +19,15 @@ import com.tuarua.fre.ANEError;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 
+/** @private */
 public class ZipANEContext {
     internal static const NAME:String = "ZipANE";
     internal static const TRACE:String = "TRACE";
     private static var _context:ExtensionContext;
-    /** @private */
+
     public function ZipANEContext() {
     }
-    /** @private */
+
     public static function get context():ExtensionContext {
         if (_context == null) {
             try {
@@ -43,7 +44,7 @@ public class ZipANEContext {
         }
         return _context;
     }
-    /** @private */
+
     private static function gotEvent(event:StatusEvent):void {
         switch (event.level) {
             case TRACE:
@@ -51,7 +52,7 @@ public class ZipANEContext {
                 break;
         }
     }
-    /** @private */
+
     public static function dispose():void {
         if (!_context) {
             return;

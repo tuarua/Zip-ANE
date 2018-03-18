@@ -18,11 +18,15 @@ import flash.events.Event;
 
 public class ExtractProgressEvent extends Event {
     public static const PROGRESS:String = "ZIPANE.OnExtractProgress";
+    /** Path to the zip file */
     public var path:String;
+    /** The path to the file which is about to be extracted */
     public var nextEntry:String;
+    /** Number of bytes extracted */
     public var bytes:Number;
+    /** This is the size of the zip uncompressed */
     public var bytesTotal:Number;
-
+    /** @private */
     public function ExtractProgressEvent(type:String, path:String = null, bytes:Number = 0,
                                          bytesTotal:Number = 0, nextEntry:String = null,
                                          bubbles:Boolean = false, cancelable:Boolean = false) {
@@ -32,12 +36,12 @@ public class ExtractProgressEvent extends Event {
         this.bytes = bytes;
         this.bytesTotal = bytesTotal;
     }
-
+    /** @private */
     public override function clone():Event {
         return new ExtractProgressEvent(type, this.path, this.bytes, this.bytesTotal,
                 this.nextEntry, bubbles, cancelable);
     }
-
+    /** @private */
     public override function toString():String {
         return formatToString("ExtractProgressEvent", "type", "path", "bytes", "nextEntry",
                 "bytesTotal", "bubbles", "cancelable");

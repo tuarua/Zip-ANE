@@ -19,17 +19,17 @@ import flash.events.Event;
 public class CompressEvent extends Event {
     public static const COMPLETE:String = "ZIPANE.OnCompressComplete";
     public var path:String;
-
+    /** @private */
     public function CompressEvent(type:String, path:String = null,
                                   bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
         this.path = path;
     }
-
+    /** @private */
     public override function clone():Event {
         return new CompressEvent(type, this.path, bubbles, cancelable);
     }
-
+    /** @private */
     public override function toString():String {
         return formatToString("CompressEvent", "type", "path", "bubbles", "cancelable");
     }
