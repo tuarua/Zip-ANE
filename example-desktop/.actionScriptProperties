@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <actionScriptProperties analytics="false" mainApplicationPath="Main.as" projectUUID="b4f4bff9-be8c-4a34-b938-e581115014bb" version="11">
   <compiler additionalCompilerArguments="-locale en_US" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="true" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
-    <compilerSourcePath/>
+    <compilerSourcePath>
+      <compilerSourcePathEntry kind="1" linkType="1" path="embed"/>
+    </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
         <excludedEntries>
@@ -32,6 +34,7 @@
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
       <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/CommonDependencies.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -50,7 +53,12 @@
         <airExcludes/>
         <anePaths>
           <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
+          <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/CommonDependencies.ane"/>
         </anePaths>
+        <newLaunchParams/>
+        <modifiedLaunchParams/>
+        <newPackagingParams/>
+        <modifiedPackagingParams/>
       </airSettings>
       <actionScriptSettings version="1"/>
     </buildTarget>
