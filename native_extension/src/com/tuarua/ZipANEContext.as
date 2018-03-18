@@ -37,6 +37,7 @@ public class ZipANEContext {
                     throw theRet as ANEError;
                 }
             } catch (e:Error) {
+                trace(e.getStackTrace(), e.message, e.errorID);
                 throw new Error("ANE " + NAME + " not created properly.  Future calls will fail.");
             }
         }

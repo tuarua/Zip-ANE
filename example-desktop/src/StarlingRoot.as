@@ -1,4 +1,5 @@
 package {
+import com.tuarua.CommonDependencies;
 import com.tuarua.ZipANE;
 import com.tuarua.zipane.ZipFile;
 import com.tuarua.zipane.events.CompressEvent;
@@ -20,6 +21,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class StarlingRoot extends Sprite {
+    private var commonDependenciesANE:CommonDependencies = new CommonDependencies(); //must create before all others
     private var btnZip:SimpleButton = new SimpleButton("Zip Files");
     private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
     private var btnInfo:SimpleButton = new SimpleButton("Get Info");
@@ -30,6 +32,7 @@ public class StarlingRoot extends Sprite {
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
         NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting);
+
     }
 
     public function start():void {
@@ -93,12 +96,12 @@ public class StarlingRoot extends Sprite {
     }
 
     private function onExtractProgress(event:ExtractProgressEvent):void {
-        // trace(event.path, event.nextEntry, event.bytes / event.bytesTotal);
+        trace(event);
         statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% extracted";
     }
 
     private function onCompressProgress(event:CompressProgressEvent):void {
-        // trace(event.path, event.nextEntry, event.bytes / event.bytesTotal);
+        trace(event);
         statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% compressed";
     }
 
@@ -117,6 +120,8 @@ public class StarlingRoot extends Sprite {
         var outFile1:File = File.applicationStorageDirectory.resolvePath("zipme.zip");
         inFile1.copyTo(outFile1, true);
 
+        trace(File.applicationStorageDirectory.resolvePath("zipme").nativePath);
+
         var inFile2:File = File.applicationDirectory.resolvePath("zipme");
         var outFile2:File = File.applicationStorageDirectory.resolvePath("zipme");
         inFile2.copyTo(outFile2, true);
@@ -124,6 +129,7 @@ public class StarlingRoot extends Sprite {
 
     private function onExiting(event:Event):void {
         ZipANE.dispose();
+        commonDependenciesANE.dispose();
     }
 
 }

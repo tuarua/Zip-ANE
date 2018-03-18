@@ -11,6 +11,9 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="CommonDependencies" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_29" />
         </dependencies>
@@ -22,6 +25,10 @@
         <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/embed" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/appicons/192x192.png" path-in-package="192x192.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/appicons/128x128.png" path-in-package="128x128.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/appicons/32x32.png" path-in-package="32x32.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/appicons/16x16.png" path-in-package="16x16.png" />
           </files-to-package>
         </packaging-air-desktop>
         <packaging-android />
@@ -39,5 +46,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
     <orderEntry type="library" exported="" name="starling" level="project" />
+    <orderEntry type="library" exported="" name="CommonDependencies" level="project" />
   </component>
 </module>

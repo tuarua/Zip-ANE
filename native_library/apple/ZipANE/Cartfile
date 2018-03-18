@@ -1,0 +1,2 @@
+binary "https://github.com/tuarua/Swift-IOS-ANE/releases/download/2.3.0/FreSwift.json" ~> 2.3.0
+# github "marmelroy/Zip"

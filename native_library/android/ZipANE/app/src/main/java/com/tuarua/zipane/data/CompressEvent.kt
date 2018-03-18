@@ -18,6 +18,5 @@ package com.tuarua.zipane.data
 data class CompressEvent(val path: String) {
     companion object {
         const val COMPLETE: String = "ZIPANE.OnCompressComplete"
-        //const val EXTRACT_COMPLETE: String = "ZIPANE.OnExtractComplete"
     }
 }

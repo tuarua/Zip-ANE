@@ -23,7 +23,6 @@ public class StarlingRoot extends Sprite {
     private var btnZip:SimpleButton = new SimpleButton("Zip Files");
     private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
     private var btnInfo:SimpleButton = new SimpleButton("Get Info");
-    //private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
 
     private var statusLabel:TextField;
 
@@ -40,7 +39,7 @@ public class StarlingRoot extends Sprite {
     private function initMenu():void {
         btnInfo.x = btnExtract.x = btnZip.x = (stage.stageWidth - 200) * 0.5;
         btnZip.y = 100;
-        btnZip.addEventListener(TouchEvent.TOUCH, onZipClick);
+        btnZip.addEventListener(TouchEvent.TOUCH, onCompressClick);
         addChild(btnZip);
 
         btnExtract.y = 180;
@@ -54,12 +53,12 @@ public class StarlingRoot extends Sprite {
         statusLabel = new TextField(stage.stageWidth, 100, "");
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
-        statusLabel.y = btnInfo.y + 75;
+        statusLabel.y = btnExtract.y + 75;
         addChild(statusLabel);
 
     }
 
-    private function onZipClick(event:TouchEvent):void {
+    private function onCompressClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnZip);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
@@ -86,8 +85,7 @@ public class StarlingRoot extends Sprite {
             }
         }
     }
-
-
+    
     private function onInfoClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInfo);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
@@ -96,12 +94,12 @@ public class StarlingRoot extends Sprite {
     }
 
     private function onExtractProgress(event:ExtractProgressEvent):void {
-        // trace(event.path, event.nextEntry, event.bytes / event.bytesTotal);
+        trace(event);
         statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% extracted";
     }
 
     private function onCompressProgress(event:CompressProgressEvent):void {
-        // trace(event.path, event.nextEntry, event.bytes / event.bytesTotal);
+        trace(event);
         statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% compressed";
     }
 
