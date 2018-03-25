@@ -74,6 +74,18 @@ public class ZipFile extends EventDispatcher {
             throw theRet as ANEError;
         }
     }
+    /** Extracts the zip.
+     *
+     * @param entryPath relative path to the single entry to extract
+     * @param to Directory to extract the zip's file to
+     */
+    public function extractEntry(entryPath:String, to:File):void {
+        ZipANEContext.context.addEventListener(StatusEvent.STATUS, gotEvent);
+        var theRet:* = ZipANEContext.context.call("extractEntry", path, entryPath, to.nativePath);
+        if (theRet is ANEError) {
+            throw theRet as ANEError;
+        }
+    }
 
     /** implements File.deleteFile() */
     public function deleteFile():void {
