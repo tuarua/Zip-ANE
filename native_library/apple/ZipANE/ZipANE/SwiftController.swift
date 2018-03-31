@@ -49,9 +49,24 @@ public class SwiftController: NSObject {
             let safePath = URL.init(safe: path),
             let safeDirectory = URL.init(safe: directory)
             else {
-                return ArgCountError(message: "compress").getError(#file, #line, #column)
+                return ArgCountError(message: "extract").getError(#file, #line, #column)
         }
         mc.extract(path: safePath, directory: safeDirectory)
+        return nil
+    }
+    
+    func extractEntry(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let mc = zipController,
+            let path = String(argv[0]),
+            let entryPath = String(argv[1]),
+            let directory = String(argv[2]),
+            let safePath = URL.init(safe: path),
+            let safeDirectory = URL.init(safe: directory)
+            else {
+                return ArgCountError(message: "extractEntry").getError(#file, #line, #column)
+        }
+        mc.extract(path: safePath, directory: safeDirectory, entryPath: entryPath)
         return nil
     }
      

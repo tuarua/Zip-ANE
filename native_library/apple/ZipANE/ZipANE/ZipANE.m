@@ -42,6 +42,7 @@ CONTEXT_INIT(TRZIP) {
          MAP_FUNCTION(TRZIP, init)
         ,MAP_FUNCTION(TRZIP, compress)
         ,MAP_FUNCTION(TRZIP, extract)
+        ,MAP_FUNCTION(TRZIP, extractEntry)
     };
     /**************************************************************************/
     /**************************************************************************/

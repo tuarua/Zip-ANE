@@ -31,6 +31,7 @@ import java.util.zip.ZipInputStream
 
 class ExtractTask(private val path: String,
                   private val to: String,
+                  private val entryPath: String?,
                   override var context: FREContext?) : AsyncTask<String, Int, String>(), FreKotlinController {
     private val gson = Gson()
 
@@ -45,8 +46,17 @@ class ExtractTask(private val path: String,
             var bytes = 0L
             val fileInputStream = FileInputStream(path)
             val zipInputStream = ZipInputStream(fileInputStream)
-
+            var entryPath = entryPath
             for (entry in zipInputStream) {
+                if(!entryPath.isNullOrEmpty()) {
+                    entryPath = entryPath?.replace("/","\\")
+                    if (entryPath == entry.name) {
+                        bytesTotal = entry.size
+                    } else {
+                        continue
+                    }
+                }
+
                 sendEvent(ExtractProgressEvent.PROGRESS,
                         gson.toJson(ExtractProgressEvent(path, bytes, bytesTotal, entry.name)))
                 bytes += entry.size
@@ -61,6 +71,9 @@ class ExtractTask(private val path: String,
                     }
                     zipInputStream.closeEntry()
                     fileOutputStream.close()
+                }
+                if(!entryPath.isNullOrEmpty() && entryPath == entry.name) {
+                    break
                 }
             }
             zipInputStream.close()

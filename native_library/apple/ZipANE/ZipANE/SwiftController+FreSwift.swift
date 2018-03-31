@@ -21,6 +21,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)compress"] = compress
         functionsToSet["\(prefix)extract"] = extract
+        functionsToSet["\(prefix)extractEntry"] = extractEntry
         
         var arr: [String] = []
         for key in functionsToSet.keys {

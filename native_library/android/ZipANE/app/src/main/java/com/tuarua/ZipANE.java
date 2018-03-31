@@ -19,13 +19,14 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.zipane.KotlinController;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class ZipANE implements FREExtension {
     private String NAME = "com.tuarua.ZipANE";
     private static final String[] FUNCTIONS = {
              "init"
             ,"compress"
             ,"extract"
+            ,"extractEntry"
     };
 
     public static ZipANEContext extensionContext;

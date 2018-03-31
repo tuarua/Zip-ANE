@@ -82,7 +82,7 @@ public class Zip {
      - notes: Supports implicit progress composition
      */
     
-    public class func unzipFile(_ zipFilePath: URL, destination: URL, overwrite: Bool, password: String?,
+    public class func unzipFile(_ zipFilePath: URL, destination: URL, overwrite: Bool, password: String?, entryPath: String?,
                                 progress: ((_ bytes: Double, _ bytesTotal: Double, _ file: String?) -> ())?,
                                 complete: (() -> ())?) throws {
         
@@ -123,7 +123,9 @@ public class Zip {
         if unzGoToFirstFile(zip) != UNZ_OK {
             throw ZipError.unzipFail
         }
+        var ep:String = entryPath ?? ""
         repeat {
+            
             if let cPassword = password?.cString(using: String.Encoding.ascii) {
                 ret = unzOpenCurrentFilePassword(zip, cPassword)
             }
@@ -143,22 +145,29 @@ public class Zip {
             }
             
             let fileNameSize = Int(fileInfo.size_filename) + 1
-            //let fileName = UnsafeMutablePointer<CChar>(allocatingCapacity: fileNameSize)
             let fileName = UnsafeMutablePointer<CChar>.allocate(capacity: fileNameSize)
 
-            
             unzGetCurrentFileInfo64(zip, &fileInfo, fileName, UInt(fileNameSize), nil, 0, nil, 0)
             fileName[Int(fileInfo.size_filename)] = 0
-
+            
             var pathString = String(cString: fileName)
             
+            if !ep.isEmpty {
+                ep = ep.replacingOccurrences(of: "/", with: "\\", options: .literal, range: nil)
+                if ep == pathString {
+                } else {
+                    ret = unzGoToNextFile(zip)
+                    continue
+                }
+            }
+
             guard pathString.count > 0 else {
                 throw ZipError.unzipFail
             }
             
             // Update progress handler
-            if let progressHandler = progress{
-                progressHandler(currentPosition , totalSize, pathString)
+            if let progressHandler = progress {
+                progressHandler(currentPosition, totalSize, pathString)
             }
             progressTracker.completedUnitCount = Int64(currentPosition)
             currentPosition += Double(fileInfo.compressed_size)
@@ -230,6 +239,10 @@ public class Zip {
                         print("Failed to set permissions to file \(fullPath), error: \(error)")
                     }
                 }
+            }
+
+            if(!ep.isEmpty && ep == pathString) {
+                break
             }
 
             ret = unzGoToNextFile(zip)

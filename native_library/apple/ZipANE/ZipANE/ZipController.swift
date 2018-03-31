@@ -29,7 +29,6 @@ class ZipController: NSObject, FreSwiftController {
     func compress(path: URL, directory: URL) {
         backgroundQueue.async {
             do {
-                
                 try Zip.zipFiles(paths: [directory], zipFilePath: path, password: nil,
                              progress: { (bytes, bytesTotal, file) -> Void in
                                 var props: [String: Any] = Dictionary()
@@ -54,10 +53,10 @@ class ZipController: NSObject, FreSwiftController {
         }
     }
 
-    func extract(path: URL, directory: URL) {
+    func extract(path: URL, directory: URL, entryPath: String? = nil) {
         backgroundQueue.async {
             do {
-                try Zip.unzipFile(path, destination: directory, overwrite: true, password: nil,
+                try Zip.unzipFile(path, destination: directory, overwrite: true, password: nil, entryPath: entryPath,
                                   progress: { (bytes, bytesTotal, file) -> Void in
                                     var props: [String: Any] = Dictionary()
                                     props["path"] = path.path
@@ -80,5 +79,5 @@ class ZipController: NSObject, FreSwiftController {
             }
         }
     }
-
+    
 }

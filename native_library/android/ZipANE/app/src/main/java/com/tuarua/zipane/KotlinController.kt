@@ -29,7 +29,7 @@ class KotlinController : FreKotlinMainController {
     fun compress(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
         val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
-        val directory = String(argv[1]) ?: return FreException("cannot convert path").getError(arrayOf())
+        val directory = String(argv[1]) ?: return FreException("cannot convert directory").getError(arrayOf())
         val tsk = CompressTask(path, directory, context)
         tsk.execute()
         return null
@@ -39,7 +39,17 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
         val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
         val to = String(argv[1]) ?: return FreException("cannot convert directory").getError(arrayOf())
-        val tsk = ExtractTask(path, to, context)
+        val tsk = ExtractTask(path, to, null, context)
+        tsk.execute()
+        return null
+    }
+
+    fun extractEntry(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 2 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
+        val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
+        val entryPath = String(argv[1]) ?: return FreException("cannot convert entryPath").getError(arrayOf())
+        val to = String(argv[2]) ?: return FreException("cannot convert directory").getError(arrayOf())
+        val tsk = ExtractTask(path, to, entryPath, context)
         tsk.execute()
         return null
     }
