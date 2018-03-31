@@ -144,7 +144,7 @@ You will need:
 - [x] Zip file extraction
 - [ ] Zip file information
 - [ ] Zip file updating
-- [ ] Zip single entry extraction
+- [x] Zip single entry extraction
 
 ### References
 * [https://github.com/marmelroy/Zip]
