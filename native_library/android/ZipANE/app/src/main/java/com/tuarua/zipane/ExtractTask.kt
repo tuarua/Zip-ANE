@@ -48,9 +48,8 @@ class ExtractTask(private val path: String,
             val zipInputStream = ZipInputStream(fileInputStream)
             var entryPath = entryPath
             for (entry in zipInputStream) {
-
                 if(!entryPath.isNullOrEmpty()) {
-                    entryPath = entryPath?.replace("\\","/")
+                    entryPath = entryPath?.replace("/","\\")
                     if (entryPath == entry.name) {
                         bytesTotal = entry.size
                     } else {
@@ -73,7 +72,7 @@ class ExtractTask(private val path: String,
                     zipInputStream.closeEntry()
                     fileOutputStream.close()
                 }
-                if(entryPath.isNullOrEmpty() && entryPath == entry.name) {
+                if(!entryPath.isNullOrEmpty() && entryPath == entry.name) {
                     break
                 }
             }

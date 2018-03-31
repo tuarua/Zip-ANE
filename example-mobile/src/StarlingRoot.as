@@ -74,14 +74,14 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnExtract);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
-            trace("zipme.zip exists", zipFile.exists);
             if (zipFile.exists) {
                 zipFile.addEventListener(ExtractProgressEvent.PROGRESS, onExtractProgress);
                 zipFile.addEventListener(ExtractEvent.COMPLETE, onExtractComplete);
                 if (!File.applicationStorageDirectory.resolvePath("extract").exists) {
                     File.applicationStorageDirectory.resolvePath("extract").createDirectory();
                 }
-                zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
+                zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
+                // zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
             }
         }
     }

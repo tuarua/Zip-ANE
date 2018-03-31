@@ -82,8 +82,8 @@ public class StarlingRoot extends Sprite {
                 if (!File.applicationStorageDirectory.resolvePath("extract").exists) {
                     File.applicationStorageDirectory.resolvePath("extract").createDirectory();
                 }
-                zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
-                //zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
+                // zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
+                zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
             }
         }
     }
