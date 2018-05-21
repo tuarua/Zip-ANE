@@ -25,7 +25,6 @@ public class StarlingRoot extends Sprite {
     private var btnZip:SimpleButton = new SimpleButton("Zip Files");
     private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
     private var btnInfo:SimpleButton = new SimpleButton("Get Info");
-    //private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
 
     private var statusLabel:TextField;
 
