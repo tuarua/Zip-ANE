@@ -133,7 +133,9 @@ fi
 #Copy native libraries into place.
 echo "Copying native libraries into place."
 cp -R -L "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release/$PROJECTNAME.framework" "$pathtome/platforms/mac/release"
+if [ -d "$pathtome/platforms/mac/release/$PROJECTNAME.framework/Versions/A/Frameworks" ]; then
 mv "$pathtome/platforms/mac/release/$PROJECTNAME.framework/Versions/A/Frameworks" "$pathtome/platforms/mac/release/$PROJECTNAME.framework"
+fi
 rm -r "$pathtome/platforms/mac/release/$PROJECTNAME.framework/Versions"
 
 ##############################################################################

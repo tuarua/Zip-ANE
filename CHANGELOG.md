@@ -1,3 +1,6 @@
+### 0.0.3
+- AND: Updated to FreKotlin 1.3.0
+
 ### 0.0.2  
 - extractEntry
 - Updated to FreSwift 2.4.0

@@ -27,28 +27,28 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun compress(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
-        val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
-        val directory = String(argv[1]) ?: return FreException("cannot convert directory").getError(arrayOf())
+        argv.takeIf { argv.size > 1 } ?: return FreArgException("compress")
+        val path = String(argv[0]) ?: return FreConversionException("path")
+        val directory = String(argv[1]) ?: return FreConversionException("directory")
         val tsk = CompressTask(path, directory, context)
         tsk.execute()
         return null
     }
 
     fun extract(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
-        val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
-        val to = String(argv[1]) ?: return FreException("cannot convert directory").getError(arrayOf())
+        argv.takeIf { argv.size > 1 } ?: return FreArgException("extract")
+        val path = String(argv[0]) ?: return FreConversionException("path")
+        val to = String(argv[1]) ?: return FreConversionException("to")
         val tsk = ExtractTask(path, to, null, context)
         tsk.execute()
         return null
     }
 
     fun extractEntry(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
-        val path = String(argv[0]) ?: return FreException("cannot convert path").getError(arrayOf())
-        val entryPath = String(argv[1]) ?: return FreException("cannot convert entryPath").getError(arrayOf())
-        val to = String(argv[2]) ?: return FreException("cannot convert directory").getError(arrayOf())
+        argv.takeIf { argv.size > 2 } ?: return FreArgException("extractEntry")
+        val path = String(argv[0]) ?: return FreConversionException("path")
+        val entryPath = String(argv[1]) ?: return FreConversionException("entryPath")
+        val to = String(argv[2]) ?: return FreConversionException("to")
         val tsk = ExtractTask(path, to, entryPath, context)
         tsk.execute()
         return null
