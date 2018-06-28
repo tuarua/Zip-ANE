@@ -95,26 +95,9 @@
 
         <!-- <aspectRatio></aspectRatio> -->
 
-        <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
-
-        <!-- <autoOrients></autoOrients> -->
-
-        <!-- Whether the app launches in full screen. Optional. Mobile only. Default false -->
-
-        <!-- <fullScreen></fullScreen> -->
-
-        <!-- The render mode for the app (either auto, cpu, gpu, or direct). Optional. Default auto -->
-
-        <!-- <renderMode></renderMode> -->
-
-        <!-- Whether the default direct mode rendering context allocates storage for depth and stencil buffers.  Optional.  Default false. -->
-        <!-- <depthAndStencil></depthAndStencil> -->
-
 		<!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
 		<!-- <softKeyboardBehavior></softKeyboardBehavior> -->
 
-		<!-- Display Resolution for the app (either "standard" or "high"). Optional. Default "standard" -->
-		<!-- <requestedDisplayResolution></requestedDisplayResolution> -->
 		<requestedDisplayResolution>high</requestedDisplayResolution> <!-- This also applies to Windows 10 also -->
 		<depthAndStencil>true</depthAndStencil>
 		<renderMode>direct</renderMode>
@@ -192,78 +175,7 @@
     <!-- A preferred GPU type (either "discrete" or "integrated") in case the app utilizes GPU. Desktop only. Optional -->
     <!-- <gpuPreference></gpuPreference> -->
 
-    <!-- iOS specific capabilities -->
-	<!-- <iPhone> -->
-		<!-- A list of plist key/value pairs to be added to the application Info.plist -->
-		<!-- <InfoAdditions>
-            <![CDATA[
-                <key>UIDeviceFamily</key>
-                <array>
-                    <string>1</string>
-                    <string>2</string>
-                </array>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleBlackOpaque</string>
-                <key>UIRequiresPersistentWiFi</key>
-                <string>YES</string>
-            ]]>
-        </InfoAdditions> -->
-        <!-- A list of plist key/value pairs to be added to the application Entitlements.plist -->
-		<!-- <Entitlements>
-            <![CDATA[
-                <key>keychain-access-groups</key>
-                <array>
-                    <string></string>
-                    <string></string>
-                </array>
-            ]]>
-        </Entitlements> -->
-	<!-- Display Resolution for the app (either "standard" or "high"). Optional. Default "standard" -->
-	<!-- <requestedDisplayResolution></requestedDisplayResolution> -->
-	<!-- Forcing Render Mode CPU for the devices mentioned. Optional  -->
-	<!-- <forceCPURenderModeForDevices></forceCPURenderModeForDevices> -->
-	<!-- File containing line separated list of external swf paths. These swfs won't be 
-	packaged inside the application and corresponding stripped swfs will be output in 
-	externalStrippedSwfs folder. -->
-	<!-- <externalSwfs></externalSwfs> -->
-	<!-- </iPhone> -->
 
-	<!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
-    <!--<android> -->
-    <!--	<manifestAdditions>
-		<![CDATA[
-			<manifest android:installLocation="auto">
-				<uses-permission android:name="android.permission.INTERNET"/>
-				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-				<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-				<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
-				<application android:enabled="true">
-					<activity android:excludeFromRecents="false">
-						<intent-filter>
-							<action android:name="android.intent.action.MAIN"/>
-							<category android:name="android.intent.category.LAUNCHER"/>
-						</intent-filter>
-					</activity>
-				</application>
-            </manifest>
-		]]>
-        </manifestAdditions> -->
-	    <!-- Color depth for the app (either "32bit" or "16bit"). Optional. Default 16bit before namespace 3.0, 32bit after -->
-        <!-- <colorDepth></colorDepth> -->
-        <!-- Indicates if the app contains video or not. Necessary for ordering of video planes with graphics plane, especially in Jellybean - if you app does video this must be set to true - valid values are true or false -->
-        <!-- <containsVideo></containsVideo> -->
-        <!-- This app is also for Android TV (either "true" or "false"). Optional. Default is 'false' -->
-        <!-- <supportsAndroidTV></supportsAndroidTV> -->
-        <!-- Path to the image used for banner when the app is shown on TV. The banner should be a .png image of size 320*180.-->
-        <!-- <banner></banner> -->
-        <!-- Indicates if webContents (HTML/CSS/JavaScript) can be inspected in browser. Optional . Default value is 'false' -->
-        <!-- <webContentsDebuggingEnabled></webContentsDebuggingEnabled> -->
-
-         <!-- Indicates if disableMediaCodec is enabled or not. Optional . Default value is 'false' -->
-        <!-- <disableMediaCodec></disableMediaCodec> -->
-
-    <!-- </android> -->
-	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
 
 <extensions>
 	<extensionID>com.tuarua.CommonDependencies</extensionID>

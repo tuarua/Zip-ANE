@@ -118,13 +118,18 @@ public class StarlingRoot extends Sprite {
     private static function copyEmbedFiles():void {
         var inFile1:File = File.applicationDirectory.resolvePath("zipme.zip");
         var outFile1:File = File.applicationStorageDirectory.resolvePath("zipme.zip");
-        inFile1.copyTo(outFile1, true);
+        if (inFile1.exists) {
+            inFile1.copyTo(outFile1, true);
+        }
 
         trace(File.applicationStorageDirectory.resolvePath("zipme").nativePath);
 
         var inFile2:File = File.applicationDirectory.resolvePath("zipme");
         var outFile2:File = File.applicationStorageDirectory.resolvePath("zipme");
-        inFile2.copyTo(outFile2, true);
+        if (inFile2.exists) {
+            inFile2.copyTo(outFile2, true);
+        }
+
     }
 
     private function onExiting(event:Event):void {

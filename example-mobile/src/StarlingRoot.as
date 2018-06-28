@@ -7,14 +7,18 @@ import com.tuarua.zipane.events.ExtractEvent;
 import com.tuarua.zipane.events.ExtractProgressEvent;
 
 import flash.desktop.NativeApplication;
+import flash.display.Bitmap;
 import flash.events.Event;
 import flash.filesystem.File;
+
+import starling.display.Image;
 
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.text.TextField;
+import starling.textures.Texture;
 import starling.utils.Align;
 
 import views.SimpleButton;
@@ -80,8 +84,8 @@ public class StarlingRoot extends Sprite {
                 if (!File.applicationStorageDirectory.resolvePath("extract").exists) {
                     File.applicationStorageDirectory.resolvePath("extract").createDirectory();
                 }
-                zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
-                // zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
+                // zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
+                zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
             }
         }
     }
@@ -111,6 +115,15 @@ public class StarlingRoot extends Sprite {
     private function onExtractComplete(event:ExtractEvent):void {
         trace(event);
         statusLabel.text = "extraction complete";
+
+        var file:File = File.applicationStorageDirectory.resolvePath("extract/images/adobe-air-logo.png"); ///images/adobe-air-logo.png
+        trace("does image exist", file.exists);
+    }
+
+    private function renderImage(bmp:Bitmap):void {
+        var image:Image = new Image(Texture.fromBitmap(bmp));
+        image.touchable = false;
+        addChild(image);
     }
 
     private static function copyEmbedFiles():void {
@@ -121,7 +134,6 @@ public class StarlingRoot extends Sprite {
         var inFile2:File = File.applicationDirectory.resolvePath("zipme");
         var outFile2:File = File.applicationStorageDirectory.resolvePath("zipme");
         inFile2.copyTo(outFile2, true);
-
     }
 
     private function onExiting(event:Event):void {
