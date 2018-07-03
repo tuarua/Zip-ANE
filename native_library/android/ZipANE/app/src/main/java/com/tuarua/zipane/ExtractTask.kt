@@ -36,48 +36,49 @@ class ExtractTask(private val path: String,
     private val gson = Gson()
 
     override fun doInBackground(vararg params: String): String? {
+        var bytesTotal = 0L
+        var bytes = 0L
+        var entryPath = entryPath
         try {
-            val zipFile = ZipFile(path)
-            var bytesTotal = 0L
-            for (e in zipFile.entries()) {
-                bytesTotal += e.size
+            ZipFile(path).use { zip ->
+                for (entry in zip.entries()) {
+                    bytesTotal += entry.size
+                }
             }
+            ZipFile(path).use { zip ->
+                for (entry in zip.entries()) {
+                    if (!entryPath.isNullOrEmpty()) {
+                        entryPath = entryPath?.replace("\\", "/")
+                        if (entryPath == entry.name.replace("\\", "/")) {
+                            bytesTotal = entry.size
+                        } else {
+                            continue
+                        }
+                    }
 
-            var bytes = 0L
-            val fileInputStream = FileInputStream(path)
-            val zipInputStream = ZipInputStream(fileInputStream)
-            var entryPath = entryPath
-            for (entry in zipInputStream) {
-                if(!entryPath.isNullOrEmpty()) {
-                    entryPath = entryPath?.replace("/","\\")
-                    if (entryPath == entry.name) {
-                        bytesTotal = entry.size
+                    sendEvent(ExtractProgressEvent.PROGRESS,
+                            gson.toJson(ExtractProgressEvent(path, bytes, bytesTotal, entry.name)))
+                    bytes += entry.size
+                    if (entry.isDirectory) {
+                        createDirectory("/${entry.name}")
                     } else {
-                        continue
+                        zip.getInputStream(entry).use { input ->
+                            val entryCleaned = entry.name.replace("\\", "/")
+                            val fullPath = "$to/$entryCleaned"
+                            if (!File(fullPath.substringBeforeLast("/")).exists()) {
+                                createDirectory("/${entryCleaned.substringBeforeLast("/")}")
+                            }
+                            File(fullPath).outputStream().use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                    }
+                    if (!entryPath.isNullOrEmpty() && entryPath == entry.name) {
+                        break
                     }
                 }
-
-                sendEvent(ExtractProgressEvent.PROGRESS,
-                        gson.toJson(ExtractProgressEvent(path, bytes, bytesTotal, entry.name)))
-                bytes += entry.size
-                if (entry.isDirectory) {
-                    createDirectory(entry.name)
-                } else {
-                    val fileOutputStream = FileOutputStream(to + entry.name)
-                    var c = zipInputStream.read()
-                    while (c != -1) {
-                        fileOutputStream.write(c)
-                        c = zipInputStream.read()
-                    }
-                    zipInputStream.closeEntry()
-                    fileOutputStream.close()
-                }
-                if(!entryPath.isNullOrEmpty() && entryPath == entry.name) {
-                    break
-                }
+                sendEvent(ExtractProgressEvent.PROGRESS, gson.toJson(ExtractProgressEvent(path, bytesTotal, bytesTotal)))
             }
-            zipInputStream.close()
-            sendEvent(ExtractProgressEvent.PROGRESS, gson.toJson(ExtractProgressEvent(path, bytesTotal, bytesTotal)))
         } catch (e: Exception) {
             sendEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
         }

@@ -7,9 +7,8 @@ using TuaRua.FreSharp.Exceptions;
 using FREObject = System.IntPtr;
 using FREContext = System.IntPtr;
 using System.IO.Compression;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ZipLib {
     public class MainController : FreSharpMainController {
@@ -44,6 +43,7 @@ namespace ZipLib {
             catch (Exception e) {
                 return new FreException(e).RawValue;
             }
+
             return FREObject.Zero;
         }
 
@@ -67,6 +67,7 @@ namespace ZipLib {
             catch (Exception e) {
                 return new FreException(e).RawValue;
             }
+
             return FREObject.Zero;
         }
 
@@ -95,31 +96,6 @@ namespace ZipLib {
             return FREObject.Zero;
         }
 
-        /*public FREObject UncompressedSize11(FREContext ctx, uint argc, FREObject[] argv) {
-            if (argv[0] == FREObject.Zero) return FREObject.Zero;
-            try {
-                var path = argv[0].AsString();
-                var totalSize = 0L;
-                Trace("totalSize before loop:", totalSize);
-
-                using (var archive = ZipFile.OpenRead(path)) {
-                    //totalSize += archive.Entries.Sum(entry => entry.Length);
-
-                    foreach (var entry in archive.Entries) {
-                        totalSize += entry.Length;
-                        Trace("nm", entry.Name, entry.FullName, entry.Length);
-                        //entry.ExtractToFile(Path.Combine(extractPath, entry.FullName));
-                    }
-                }
-                Trace("totalSize after:", totalSize);
-                return ((double) totalSize).ToFREObject();
-            }
-            catch (Exception e) {
-                return new FreException(e).RawValue;
-            }
-        }*/
-
-
         private async Task<bool> ExtractAsync(string path, string directory, string entryPath = null) {
             await Task.Run(() => {
                 var bytesTotal = UncompressedSize(path);
@@ -127,7 +103,7 @@ namespace ZipLib {
                     var bytes = 0L;
                     foreach (var entry in archive.Entries) {
                         if (!string.IsNullOrEmpty(entryPath)) {
-                            entryPath = entryPath.Replace("/","\\");
+                            entryPath = entryPath.Replace("/", "\\");
                             if (entryPath == entry.FullName) {
                                 bytesTotal = entry.Length;
                             }
@@ -135,6 +111,7 @@ namespace ZipLib {
                                 continue;
                             }
                         }
+
                         SendEvent(ExtractProgressEvent.Progress,
                             GetProgressEventJson(path, bytes, bytesTotal, entry.FullName));
                         bytes += entry.Length;
@@ -143,11 +120,13 @@ namespace ZipLib {
                         if (fileFolder != null && !File.Exists(fileFolder)) {
                             Directory.CreateDirectory(fileFolder);
                         }
+
                         entry.ExtractToFile(fullPath, true);
                         if (!string.IsNullOrEmpty(entryPath) && entryPath == entry.FullName) {
                             break;
                         }
                     }
+
                     SendEvent(ExtractProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
                 }
             });
@@ -179,51 +158,35 @@ namespace ZipLib {
                         }
                     }
                 }
+
                 SendEvent(CompressProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
             });
-            // https://stackoverflow.com/questions/42430559/progress-bar-not-available-for-zipfile-how-to-give-feedback-when-program-seems
             return true;
         }
 
         private static string GetZipEventJson(string path) {
-            var sb = new StringBuilder();
-            var sw = new StringWriter(sb);
-            var writer = new JsonTextWriter(sw);
-            writer.WriteStartObject();
-            writer.WritePropertyName("path");
-            writer.WriteValue(path);
-            writer.WriteEndObject();
-            return sb.ToString();
+            var json = JObject.FromObject(new {
+                path
+            });
+            return json.ToString();
         }
 
         private static string GetZipErrorEventJson(string path, string message) {
-            var sb = new StringBuilder();
-            var sw = new StringWriter(sb);
-            var writer = new JsonTextWriter(sw);
-            writer.WriteStartObject();
-            writer.WritePropertyName("path");
-            writer.WriteValue(path);
-            writer.WritePropertyName("message");
-            writer.WriteValue(string.IsNullOrEmpty(message) ? "" : message);
-            writer.WriteEndObject();
-            return sb.ToString();
+            var json = JObject.FromObject(new {
+                path,
+                message = string.IsNullOrEmpty(message) ? "" : message
+            });
+            return json.ToString();
         }
 
         private static string GetProgressEventJson(string path, long bytes, long bytesTotal, string nextEntry = "") {
-            var sb = new StringBuilder();
-            var sw = new StringWriter(sb);
-            var writer = new JsonTextWriter(sw);
-            writer.WriteStartObject();
-            writer.WritePropertyName("path");
-            writer.WriteValue(path);
-            writer.WritePropertyName("bytes");
-            writer.WriteValue(bytes);
-            writer.WritePropertyName("bytesTotal");
-            writer.WriteValue(bytesTotal);
-            writer.WritePropertyName("nextEntry");
-            writer.WriteValue(nextEntry);
-            writer.WriteEndObject();
-            return sb.ToString();
+            var json = JObject.FromObject(new {
+                path,
+                bytes,
+                bytesTotal,
+                nextEntry
+            });
+            return json.ToString();
         }
 
         private static long UncompressedSize(string path) {
@@ -231,6 +194,7 @@ namespace ZipLib {
             using (var archive = ZipFile.OpenRead(path)) {
                 totalSize += archive.Entries.Sum(entry => entry.Length);
             }
+
             return totalSize;
         }
 

@@ -15,7 +15,6 @@ extern "C" {
 			,MAP_FUNCTION(compress)
 			,MAP_FUNCTION(extract)
 			,MAP_FUNCTION(extractEntry)
-			//,MAP_FUNCTION(uncompressedSize)
 		};
 
 		SET_FUNCTIONS

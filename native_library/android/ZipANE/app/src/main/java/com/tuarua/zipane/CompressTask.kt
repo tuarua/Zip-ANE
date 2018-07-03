@@ -47,7 +47,7 @@ class CompressTask(private val path: String,
                         gson.toJson(CompressProgressEvent(path, bytes, bytesTotal, fileName)))
                 bytes += file.second
                 val fileInputStream = FileInputStream(file.first)
-                val zipEntry = ZipEntry(file.first.substring(directory.length))
+                val zipEntry = ZipEntry(fileName)
                 zipOutputStream.putNextEntry(zipEntry)
                 fileInputStream.buffered().use {
                     it.copyTo(zipOutputStream)
