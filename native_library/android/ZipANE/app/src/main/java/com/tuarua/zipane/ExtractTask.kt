@@ -24,10 +24,7 @@ import com.tuarua.zipane.data.CompressEvent
 import com.tuarua.zipane.data.ExtractEvent
 import com.tuarua.zipane.data.ZipErrorEvent
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.util.zip.ZipFile
-import java.util.zip.ZipInputStream
 
 class ExtractTask(private val path: String,
                   private val to: String,
@@ -56,7 +53,7 @@ class ExtractTask(private val path: String,
                         }
                     }
 
-                    sendEvent(ExtractProgressEvent.PROGRESS,
+                    dispatchEvent(ExtractProgressEvent.PROGRESS,
                             gson.toJson(ExtractProgressEvent(path, bytes, bytesTotal, entry.name)))
                     bytes += entry.size
                     if (entry.isDirectory) {
@@ -77,10 +74,10 @@ class ExtractTask(private val path: String,
                         break
                     }
                 }
-                sendEvent(ExtractProgressEvent.PROGRESS, gson.toJson(ExtractProgressEvent(path, bytesTotal, bytesTotal)))
+                dispatchEvent(ExtractProgressEvent.PROGRESS, gson.toJson(ExtractProgressEvent(path, bytesTotal, bytesTotal)))
             }
         } catch (e: Exception) {
-            sendEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
+            dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
         }
         return null
     }
@@ -91,7 +88,7 @@ class ExtractTask(private val path: String,
     }
 
     override fun onPostExecute(unused: String?) {
-        sendEvent(ExtractEvent.COMPLETE, gson.toJson(CompressEvent(path)))
+        dispatchEvent(ExtractEvent.COMPLETE, gson.toJson(CompressEvent(path)))
     }
 
     override val TAG: String

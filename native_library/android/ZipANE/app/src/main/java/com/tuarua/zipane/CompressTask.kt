@@ -43,7 +43,7 @@ class CompressTask(private val path: String,
             var bytes = 0L
             for (file in fileList) {
                 val fileName = file.first.substring(directory.length + 1)
-                sendEvent(CompressProgressEvent.PROGRESS,
+                dispatchEvent(CompressProgressEvent.PROGRESS,
                         gson.toJson(CompressProgressEvent(path, bytes, bytesTotal, fileName)))
                 bytes += file.second
                 val fileInputStream = FileInputStream(file.first)
@@ -55,9 +55,9 @@ class CompressTask(private val path: String,
                 zipOutputStream.closeEntry()
             }
             zipOutputStream.close()
-            sendEvent(CompressProgressEvent.PROGRESS, gson.toJson(CompressProgressEvent(path, bytesTotal, bytesTotal)))
+            dispatchEvent(CompressProgressEvent.PROGRESS, gson.toJson(CompressProgressEvent(path, bytesTotal, bytesTotal)))
         } catch (e: Exception) {
-            sendEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
+            dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
         }
         return null
     }
@@ -74,7 +74,7 @@ class CompressTask(private val path: String,
     }
 
     override fun onPostExecute(unused: String?) {
-        sendEvent(CompressEvent.COMPLETE, gson.toJson(CompressEvent(path)))
+        dispatchEvent(CompressEvent.COMPLETE, gson.toJson(CompressEvent(path)))
         fileList.clear()
     }
 

@@ -33,10 +33,10 @@ namespace ZipLib {
                 var task = CompressAsync(path, directory);
                 task.ContinueWith(previous => {
                     if (previous.Status == TaskStatus.RanToCompletion) {
-                        SendEvent(CompressEvent.OnComplete, GetZipEventJson(path));
+                        DispatchEvent(CompressEvent.OnComplete, GetZipEventJson(path));
                     }
                     else {
-                        SendEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
+                        DispatchEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
                     }
                 }, TaskContinuationOptions.ExecuteSynchronously);
             }
@@ -57,10 +57,10 @@ namespace ZipLib {
                 var task = ExtractAsync(path, directory);
                 task.ContinueWith(previous => {
                     if (previous.Status == TaskStatus.RanToCompletion) {
-                        SendEvent(ExtractEvent.OnComplete, GetZipEventJson(path));
+                        DispatchEvent(ExtractEvent.OnComplete, GetZipEventJson(path));
                     }
                     else {
-                        SendEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
+                        DispatchEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
                     }
                 }, TaskContinuationOptions.ExecuteSynchronously);
             }
@@ -82,10 +82,10 @@ namespace ZipLib {
                 var task = ExtractAsync(path, directory, entryPath);
                 task.ContinueWith(previous => {
                     if (previous.Status == TaskStatus.RanToCompletion) {
-                        SendEvent(ExtractEvent.OnComplete, GetZipEventJson(path));
+                        DispatchEvent(ExtractEvent.OnComplete, GetZipEventJson(path));
                     }
                     else {
-                        SendEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
+                        DispatchEvent(ZipErrorEvent.OnError, GetZipErrorEventJson(path, previous.Exception?.Message));
                     }
                 }, TaskContinuationOptions.ExecuteSynchronously);
             }
@@ -112,7 +112,7 @@ namespace ZipLib {
                             }
                         }
 
-                        SendEvent(ExtractProgressEvent.Progress,
+                        DispatchEvent(ExtractProgressEvent.Progress,
                             GetProgressEventJson(path, bytes, bytesTotal, entry.FullName));
                         bytes += entry.Length;
                         var fullPath = Path.Combine(directory, entry.FullName);
@@ -127,7 +127,7 @@ namespace ZipLib {
                         }
                     }
 
-                    SendEvent(ExtractProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
+                    DispatchEvent(ExtractProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
                 }
             });
             return true;
@@ -141,7 +141,7 @@ namespace ZipLib {
                     using (var archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update)) {
                         var bytes = 0L;
                         foreach (var file in sourceFiles) {
-                            SendEvent(CompressProgressEvent.Progress,
+                            DispatchEvent(CompressProgressEvent.Progress,
                                 GetProgressEventJson(path, bytes, bytesTotal,
                                     file.FullName.Substring(directory.Length + 1)));
                             bytes += file.Length;
@@ -159,7 +159,7 @@ namespace ZipLib {
                     }
                 }
 
-                SendEvent(CompressProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
+                DispatchEvent(CompressProgressEvent.Progress, GetProgressEventJson(path, bytesTotal, bytesTotal));
             });
             return true;
         }
