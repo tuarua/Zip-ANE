@@ -21,7 +21,7 @@ import com.tuarua.zipane.KotlinController;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class ZipANE implements FREExtension {
-    private String NAME = "com.tuarua.ZipANE";
+    private final String NAME = "com.tuarua.ZipANE";
     private static final String[] FUNCTIONS = {
              "init"
             ,"compress"

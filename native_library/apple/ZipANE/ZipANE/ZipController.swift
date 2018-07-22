@@ -36,19 +36,19 @@ class ZipController: NSObject, FreSwiftController {
                                 props["bytes"] = bytes
                                 props["bytesTotal"] = bytesTotal
                                 props["nextEntry"] = file
-                                self.sendEvent(name: CompressProgressEvent.PROGRESS, value: JSON(props).description)
+                                self.dispatchEvent(name: CompressProgressEvent.PROGRESS, value: JSON(props).description)
                 },
                              complete: {
                                 var props: [String: Any] = Dictionary()
                                 props["path"] = path.path
-                                self.sendEvent(name: CompressEvent.COMPLETE, value: JSON(props).description)
+                                self.dispatchEvent(name: CompressEvent.COMPLETE, value: JSON(props).description)
                 })
 
             } catch let e {
                 var props: [String: Any] = Dictionary()
                 props["path"] = path.path
                 props["message"] = e.localizedDescription
-                self.sendEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
+                self.dispatchEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
             }
         }
     }
@@ -63,19 +63,20 @@ class ZipController: NSObject, FreSwiftController {
                                     props["bytes"] = bytes
                                     props["bytesTotal"] = bytesTotal
                                     props["nextEntry"] = file
-                                    self.sendEvent(name: ExtractProgressEvent.PROGRESS, value: JSON(props).description)
+                                    self.dispatchEvent(name: ExtractProgressEvent.PROGRESS,
+                                                       value: JSON(props).description)
 
                 },
                                   complete: {
                                     var props: [String: Any] = Dictionary()
                                     props["path"] = path.path
-                                    self.sendEvent(name: ExtractEvent.COMPLETE, value: JSON(props).description)
+                                    self.dispatchEvent(name: ExtractEvent.COMPLETE, value: JSON(props).description)
                 })
             } catch let e {
                 var props: [String: Any] = Dictionary()
                 props["path"] = path.path
                 props["message"] = e.localizedDescription
-                self.sendEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
+                self.dispatchEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
             }
         }
     }

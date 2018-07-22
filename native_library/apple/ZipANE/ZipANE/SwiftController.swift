@@ -35,7 +35,7 @@ public class SwiftController: NSObject {
             let safePath = URL.init(safe: path),
             let safeDirectory = URL.init(safe: directory)
             else {
-                return ArgCountError(message: "compress").getError(#file, #line, #column)
+                return FreArgError(message: "compress").getError(#file, #line, #column)
         }
         mc.compress(path: safePath, directory: safeDirectory)
         return nil
@@ -49,7 +49,7 @@ public class SwiftController: NSObject {
             let safePath = URL.init(safe: path),
             let safeDirectory = URL.init(safe: directory)
             else {
-                return ArgCountError(message: "extract").getError(#file, #line, #column)
+                return FreArgError(message: "extract").getError(#file, #line, #column)
         }
         mc.extract(path: safePath, directory: safeDirectory)
         return nil
@@ -64,7 +64,7 @@ public class SwiftController: NSObject {
             let safePath = URL.init(safe: path),
             let safeDirectory = URL.init(safe: directory)
             else {
-                return ArgCountError(message: "extractEntry").getError(#file, #line, #column)
+                return FreArgError(message: "extractEntry").getError(#file, #line, #column)
         }
         mc.extract(path: safePath, directory: safeDirectory, entryPath: entryPath)
         return nil
