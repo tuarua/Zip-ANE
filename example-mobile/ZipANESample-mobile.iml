@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Simulator">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -11,10 +11,13 @@
             <entry library-name="com.tuarua.frekotlin" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.1" library-level="project">
+            <entry library-name="ZipANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="ZipANE" library-level="project">
+            <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -47,10 +50,13 @@
             <entry library-name="com.tuarua.frekotlin" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.1" library-level="project">
+            <entry library-name="ZipANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="ZipANE" library-level="project">
+            <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -82,10 +88,13 @@
             <entry library-name="com.tuarua.frekotlin" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.1" library-level="project">
+            <entry library-name="ZipANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="ZipANE" library-level="project">
+            <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -122,5 +131,7 @@
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
     <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.4" level="project" />
+    <orderEntry type="library" exported="" name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" level="project" />
   </component>
 </module>

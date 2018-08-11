@@ -17,10 +17,26 @@ package com.tuarua.zipane
 
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.gson.Gson
 import com.tuarua.frekotlin.*
+import com.tuarua.zipane.data.*
+
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
+import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.launch
+import java.util.zip.ZipFile
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST")
 class KotlinController : FreKotlinMainController {
+    private val bgContext: CoroutineContext = CommonPool
+    private val gson = Gson()
+    private var fileList = mutableListOf<Pair<String, Long>>()
+    private var bytesTotal: Long = 0L
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         return true.toFREObject()
@@ -30,17 +46,47 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("compress")
         val path = String(argv[0]) ?: return FreConversionException("path")
         val directory = String(argv[1]) ?: return FreConversionException("directory")
-        val tsk = CompressTask(path, directory, context)
-        tsk.execute()
+
+        launch(bgContext, onCompletion = {
+            dispatchEvent(CompressEvent.COMPLETE, gson.toJson(CompressEvent(path)))
+            fileList.clear()
+            bytesTotal = 0
+        }) {
+            try {
+                val fileOutputStream = FileOutputStream(path)
+                val zipOutputStream = ZipOutputStream(fileOutputStream)
+                val directoryFile = File(directory)
+                getFileList(directoryFile.listFiles())
+                var bytes = 0L
+                for (file in fileList) {
+                    val fileName = file.first.substring(directory.length + 1)
+                    dispatchEvent(CompressProgressEvent.PROGRESS,
+                            gson.toJson(CompressProgressEvent(path, bytes, bytesTotal, fileName)))
+                    bytes += file.second
+                    val fileInputStream = FileInputStream(file.first)
+                    val zipEntry = ZipEntry(fileName)
+                    zipOutputStream.putNextEntry(zipEntry)
+                    fileInputStream.buffered().use {
+                        it.copyTo(zipOutputStream)
+                    }
+                    zipOutputStream.closeEntry()
+                }
+                zipOutputStream.close()
+                dispatchEvent(CompressProgressEvent.PROGRESS,
+                        gson.toJson(CompressProgressEvent(path, bytesTotal, bytesTotal)))
+            } catch (e: Exception) {
+                dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
+            }
+        }
         return null
     }
+
 
     fun extract(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("extract")
         val path = String(argv[0]) ?: return FreConversionException("path")
         val to = String(argv[1]) ?: return FreConversionException("to")
-        val tsk = ExtractTask(path, to, null, context)
-        tsk.execute()
+        extract(path, to)
         return null
     }
 
@@ -49,9 +95,83 @@ class KotlinController : FreKotlinMainController {
         val path = String(argv[0]) ?: return FreConversionException("path")
         val entryPath = String(argv[1]) ?: return FreConversionException("entryPath")
         val to = String(argv[2]) ?: return FreConversionException("to")
-        val tsk = ExtractTask(path, to, entryPath, context)
-        tsk.execute()
+        extract(path, to, entryPath)
         return null
+    }
+
+    private fun extract(path: String, to: String, entryPath: String? = null) {
+        bytesTotal = 0L
+        var bytes = 0L
+        var ePath = entryPath
+        launch(bgContext, onCompletion = {
+            dispatchEvent(ExtractEvent.COMPLETE, gson.toJson(CompressEvent(path)))
+        }) {
+            try {
+                createDirectory(to, "")
+                ZipFile(path).use { zip ->
+                    for (entry in zip.entries()) {
+                        bytesTotal += entry.size
+                    }
+                }
+                ZipFile(path).use { zip ->
+                    for (entry in zip.entries()) {
+                        if (!ePath.isNullOrEmpty()) {
+                            ePath = ePath?.replace("\\", "/")
+                            if (ePath == entry.name.replace("\\", "/")) {
+                                bytesTotal = entry.size
+                            } else {
+                                continue
+                            }
+                        }
+
+                        dispatchEvent(ExtractProgressEvent.PROGRESS,
+                                gson.toJson(ExtractProgressEvent(path, bytes, bytesTotal, entry.name)))
+                        bytes += entry.size
+                        if (entry.isDirectory) {
+                            createDirectory(to, "/${entry.name}")
+                        } else {
+                            zip.getInputStream(entry).use { input ->
+                                val entryCleaned = entry.name.replace("\\", "/")
+                                val fullPath = "$to/$entryCleaned"
+                                if (!File(fullPath.substringBeforeLast("/")).exists()) {
+                                    createDirectory(to,
+                                            "/${entryCleaned.substringBeforeLast("/")}")
+                                }
+                                File(fullPath).outputStream().use { output ->
+                                    input.copyTo(output)
+                                }
+                            }
+                        }
+                        if (!ePath.isNullOrEmpty() && ePath == entry.name) {
+                            break
+                        }
+                    }
+                    dispatchEvent(ExtractProgressEvent.PROGRESS,
+                            gson.toJson(ExtractProgressEvent(path, bytesTotal, bytesTotal)))
+                }
+            } catch (e: Exception) {
+                dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
+            }
+        }
+
+    }
+
+    private fun getFileList(files: Array<File>) {
+        for (file in files) {
+            if (file.isDirectory) {
+                getFileList(file.listFiles())
+            } else {
+                bytesTotal += file.length()
+                fileList.add(Pair<String, Long>(file.path, file.length()))
+            }
+        }
+    }
+
+    private fun createDirectory(to: String, dir: String) {
+        val f = File(to + dir)
+        if (!f.isDirectory) {
+            f.mkdirs()
+        }
     }
 
     override val TAG: String
