@@ -96,6 +96,7 @@ PS get_android_dependencies.ps1
 ````xml
 <extensions>
 <extensionID>com.tuarua.frekotlin</extensionID>
+<extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
 <extensionID>com.tuarua.ZipANE</extensionID>
 <extensionID>com.google.code.gson.gson</extensionID>
 ...
@@ -135,7 +136,7 @@ You will need:
 - IntelliJ IDEA / Flash Builder
 - AIR 29
 - Android Studio 3 if you wish to edit the Android source
-- Xcode 9.1 if you wish to edit the iOS source
+- Xcode 9.4.1 if you wish to edit the iOS source
 - wget on OSX
 - Powershell on Windows
 
