@@ -24,6 +24,7 @@ namespace ZipLib {
         }
 
         public FREObject Compress(FREContext ctx, uint argc, FREObject[] argv) {
+            if (argc < 2) return new FreException("Not enough args sent to Compress").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
             try {
@@ -49,6 +50,7 @@ namespace ZipLib {
 
 
         public FREObject Extract(FREContext ctx, uint argc, FREObject[] argv) {
+            if (argc < 2) return new FreException("Not enough args sent to Extract").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
             try {
@@ -72,6 +74,7 @@ namespace ZipLib {
         }
 
         public FREObject ExtractEntry(FREContext ctx, uint argc, FREObject[] argv) {
+            if (argc < 3) return new FreException("Not enough args sent to ExtractEntry").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
             if (argv[2] == FREObject.Zero) return FREObject.Zero;
@@ -203,5 +206,7 @@ namespace ZipLib {
         }
 
         public override void OnFinalize() { }
+
+        public override string TAG => "MainController";
     }
 }

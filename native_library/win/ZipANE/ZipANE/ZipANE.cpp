@@ -6,10 +6,6 @@ extern "C" {
 	CONTEXT_INIT(TRZIP) {
 		FREBRIDGE_INIT
 
-		/**************************************************************************/
-		/******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS MAINCONTROLLER.CS *****/
-		/**************************************************************************/
-
 		static FRENamedFunction extensionFunctions[] = {
 			 MAP_FUNCTION(init)
 			,MAP_FUNCTION(compress)

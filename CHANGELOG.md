@@ -1,3 +1,7 @@
+### 0.0.7
+- WIN: Updated to FreSharp 2.0.0
+- AND: Updated to FreKotlin 1.5.0
+
 ### 0.0.6
 - AND: Replace AsyncTasks with Kotlin Coroutines
 
