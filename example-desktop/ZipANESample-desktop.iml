@@ -8,10 +8,13 @@
             <entry library-name="ZipANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="starling" library-level="project">
+            <entry library-name="CommonDependencies" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="CommonDependencies" library-level="project">
+            <entry library-name="FiraSansSemiBold" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="greensock" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -48,5 +51,7 @@
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="CommonDependencies" level="project" />
+    <orderEntry type="library" exported="" name="FiraSansSemiBold" level="project" />
+    <orderEntry type="library" exported="" name="greensock" level="project" />
   </component>
 </module>

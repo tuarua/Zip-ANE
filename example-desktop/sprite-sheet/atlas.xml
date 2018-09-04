@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with TexturePacker https://www.codeandweb.com/texturepacker -->
-<!-- $TexturePacker:SmartUpdate:f4f459de3ec7ff34a09f3ce984ee6e56:e8d76bb5d71ce1243bc60a3a66af518f:cde709370900f12288f3449eded86f07$ -->
-<TextureAtlas imagePath="atlas.png" width="134" height="196">
-    <SubTexture name="fira-sans-semi-bold-13" x="1" y="1" width="132" height="194"/>
-</TextureAtlas>
