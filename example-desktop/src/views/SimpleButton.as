@@ -7,9 +7,10 @@ import flash.events.MouseEvent;
 import flash.text.TextField;
 import flash.text.TextFormat;
 
-public class SimpleButton extends Sprite {
+public class SimpleButton extends flash.display.SimpleButton {
     private var highlight:Shape;
     public function SimpleButton(text:String, w:int = 200) {
+        var container:Sprite = new Sprite();
         var bg:Shape = new Shape();
         bg.graphics.beginFill(0x337AB7);
         bg.graphics.drawRect(0, 0, w, 36);
@@ -36,12 +37,17 @@ public class SimpleButton extends Sprite {
         highlight.graphics.drawRect(0, 0, w, 38);
         highlight.graphics.endFill();
 
-        this.addChild(bg);
-        this.addChild(line);
-        this.addChild(lbl);
+        container.addChild(bg);
+        container.addChild(line);
+        container.addChild(lbl);
         highlight.alpha = 0;
-        this.addChild(highlight);
-        this.cacheAsBitmap = true;
+        container.addChild(highlight);
+        container.cacheAsBitmap = true;
+        this.upState = container;
+        this.downState = container;
+        this.overState = container;
+        this.hitTestState = container;
+        this.useHandCursor = false;
         this.addEventListener(MouseEvent.CLICK, onClick);
     }
 
