@@ -20,7 +20,7 @@ import flash.text.TextFormat;
 
 import views.SimpleButton;
 
-[SWF(width="1024", height="768", frameRate="60", backgroundColor="#FFFFFF")]
+[SWF(width="800", height="600", frameRate="60", backgroundColor="#FFFFFF")]
 public class Main extends Sprite {
     private var commonDependenciesANE:CommonDependencies = new CommonDependencies(); //must create before all others
     public static const FONT:Font = new FiraSansSemiBold();
