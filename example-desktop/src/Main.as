@@ -14,6 +14,7 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.filesystem.File;
+import flash.text.AntiAliasType;
 import flash.text.Font;
 import flash.text.TextField;
 import flash.text.TextFormat;
@@ -58,11 +59,17 @@ public class Main extends Sprite {
 
         var tf:TextFormat = new TextFormat(Main.FONT.fontName, 13, 0x222222);
         tf.align = "center";
-        tf.bold = false;
+
         statusLabel.defaultTextFormat = tf;
-        statusLabel.selectable = false;
         statusLabel.width = stage.stageWidth;
         statusLabel.y = btnExtract.y + 75;
+
+        statusLabel.wordWrap = statusLabel.multiline = false;
+        statusLabel.selectable = false;
+        statusLabel.embedFonts = true;
+        statusLabel.antiAliasType = AntiAliasType.ADVANCED;
+        statusLabel.sharpness = -100;
+
         addChild(statusLabel);
 
     }

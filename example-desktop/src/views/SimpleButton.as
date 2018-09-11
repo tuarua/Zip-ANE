@@ -4,6 +4,7 @@ import com.greensock.TweenLite;
 import flash.display.Shape;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
+import flash.text.AntiAliasType;
 import flash.text.TextField;
 import flash.text.TextFormat;
 
@@ -26,6 +27,12 @@ public class SimpleButton extends flash.display.SimpleButton {
         lbl.width = w;
         lbl.y = 7;
 
+        lbl.wordWrap = lbl.multiline = false;
+        lbl.selectable = false;
+        lbl.embedFonts = true;
+        lbl.antiAliasType = AntiAliasType.ADVANCED;
+        lbl.sharpness = -100;
+
         var tf:TextFormat = new TextFormat(Main.FONT.fontName, 13, 0xFFFFFF);
         tf.align = "center";
         tf.bold = false;
@@ -43,6 +50,7 @@ public class SimpleButton extends flash.display.SimpleButton {
         highlight.alpha = 0;
         container.addChild(highlight);
         container.cacheAsBitmap = true;
+
         this.upState = container;
         this.downState = container;
         this.overState = container;
