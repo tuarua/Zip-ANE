@@ -1,63 +1,140 @@
 package {
+import com.tuarua.CommonDependencies;
+import com.tuarua.ZipANE;
+import com.tuarua.zipane.ZipFile;
+import com.tuarua.zipane.events.CompressEvent;
+import com.tuarua.zipane.events.CompressProgressEvent;
+import com.tuarua.zipane.events.ExtractEvent;
+import com.tuarua.zipane.events.ExtractProgressEvent;
+
 import flash.desktop.NativeApplication;
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
-import flash.geom.Rectangle;
+import flash.events.MouseEvent;
+import flash.filesystem.File;
+import flash.text.AntiAliasType;
+import flash.text.Font;
+import flash.text.TextField;
+import flash.text.TextFormat;
 
-import starling.core.Starling;
-import starling.events.Event;
-import starling.events.ResizeEvent;
+import views.SimpleButton;
 
-[SWF(width="1024", height="768", frameRate="60", backgroundColor="#FFFFFF")]
+[SWF(width="800", height="600", frameRate="60", backgroundColor="#FFFFFF")]
 public class Main extends Sprite {
-    public var mStarling:Starling;
+    private var commonDependenciesANE:CommonDependencies = new CommonDependencies(); //must create before all others
+    public static const FONT:Font = new FiraSansSemiBold();
+    private var btnZip:SimpleButton = new SimpleButton("Zip Files");
+    private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
+    private var statusLabel:TextField = new TextField();
 
     public function Main() {
         super();
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
-        Starling.multitouchEnabled = false;
-        var viewPort:Rectangle = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);
-
-
-        mStarling = new Starling(StarlingRoot, stage, viewPort, null, "auto", "auto");
-        mStarling.addEventListener(starling.events.Event.ROOT_CREATED,
-                function onRootCreated(event:Object, app:StarlingRoot):void {
-                    var _app:StarlingRoot = app;
-                    mStarling.removeEventListener(starling.events.Event.ROOT_CREATED, onRootCreated);
-                    _app.start();
-                    mStarling.start();
-                    stage.addEventListener(ResizeEvent.RESIZE, onResize);
-                });
-
-        mStarling.stage.stageWidth = stage.stageWidth;  // <- same size on all devices!
-        mStarling.stage.stageHeight = stage.stageHeight;
-        mStarling.simulateMultitouch = false;
-        mStarling.enableErrorChecking = false;
-        mStarling.antiAliasing = 16;
-        mStarling.skipUnchangedFrames = true;
-        mStarling.supportHighResolutions = true;
-
+        start();
 
         NativeApplication.nativeApplication.executeInBackground = true;
+        NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting);
+
     }
 
-    private function onResize(e:flash.events.Event):void {
-        mStarling.stage.stageWidth = this.stage.stageWidth;
-        mStarling.stage.stageHeight = this.stage.stageHeight;
+    public function start():void {
+        initMenu();
+        copyEmbedFiles();
+    }
 
-        var viewPort:Rectangle = mStarling.viewPort;
-        viewPort.width = this.stage.stageWidth;
-        viewPort.height = this.stage.stageHeight;
-        try {
-            mStarling.viewPort = viewPort;
+    private function initMenu():void {
+        btnExtract.x = btnZip.x = (stage.stageWidth - 200) * 0.5;
+        btnZip.y = 100;
+        btnZip.addEventListener(MouseEvent.CLICK, onZipClick);
+        addChild(btnZip);
+
+        btnExtract.y = 180;
+        btnExtract.addEventListener(MouseEvent.CLICK, onExtractClick);
+
+        addChild(btnExtract);
+
+        var tf:TextFormat = new TextFormat(Main.FONT.fontName, 13, 0x222222);
+        tf.align = "center";
+
+        statusLabel.defaultTextFormat = tf;
+        statusLabel.width = stage.stageWidth;
+        statusLabel.y = btnExtract.y + 75;
+
+        statusLabel.wordWrap = statusLabel.multiline = false;
+        statusLabel.selectable = false;
+        statusLabel.embedFonts = true;
+        statusLabel.antiAliasType = AntiAliasType.ADVANCED;
+        statusLabel.sharpness = -100;
+
+        addChild(statusLabel);
+
+    }
+
+    private function onExtractClick(event:MouseEvent):void {
+        var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
+        zipFile.addEventListener(ExtractProgressEvent.PROGRESS, onExtractProgress);
+        zipFile.addEventListener(ExtractEvent.COMPLETE, onExtractComplete);
+        if (zipFile.exists) {
+            if (!File.applicationStorageDirectory.resolvePath("extract").exists) {
+                File.applicationStorageDirectory.resolvePath("extract").createDirectory();
+            }
+            // zipFile.extractEntry("images\\adobe-air-logo.png", File.applicationStorageDirectory.resolvePath("extract"));
+            zipFile.extract(File.applicationStorageDirectory.resolvePath("extract"));
         }
-        catch (error:Error) {
+    }
+
+    private function onZipClick(event:MouseEvent):void {
+        var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
+        zipFile.addEventListener(CompressProgressEvent.PROGRESS, onCompressProgress);
+        zipFile.addEventListener(CompressEvent.COMPLETE, onCompressComplete);
+        var zipSource:File = File.applicationStorageDirectory.resolvePath("zipme");
+        zipFile.compress(zipSource);
+    }
+
+    private function onExtractProgress(event:ExtractProgressEvent):void {
+        trace(event);
+        statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% extracted";
+    }
+
+    private function onCompressProgress(event:CompressProgressEvent):void {
+        trace(event);
+        statusLabel.text = Math.floor((event.bytes / event.bytesTotal) * 100) + "% compressed";
+    }
+
+    private function onCompressComplete(event:CompressEvent):void {
+        trace(event);
+        statusLabel.text = "compression complete";
+    }
+
+    private function onExtractComplete(event:ExtractEvent):void {
+        trace(event);
+        statusLabel.text = "extraction complete";
+    }
+
+    private static function copyEmbedFiles():void {
+        var inFile1:File = File.applicationDirectory.resolvePath("zipme.zip");
+        var outFile1:File = File.applicationStorageDirectory.resolvePath("zipme.zip");
+        if (inFile1.exists) {
+            inFile1.copyTo(outFile1, true);
         }
 
+        trace(File.applicationStorageDirectory.resolvePath("zipme").nativePath);
+
+        var inFile2:File = File.applicationDirectory.resolvePath("zipme");
+        var outFile2:File = File.applicationStorageDirectory.resolvePath("zipme");
+        if (inFile2.exists) {
+            inFile2.copyTo(outFile2, true);
+        }
+
+    }
+
+    private function onExiting(event:Event):void {
+        ZipANE.dispose();
+        commonDependenciesANE.dispose();
     }
 
 }
