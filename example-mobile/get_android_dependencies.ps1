@@ -1,4 +1,4 @@
-$AneVersion = "0.0.7"
+$AneVersion = "0.1.0"
 $GsonVersion = "2.8.4"
 $KotlinxCoroutinesVersion = "0.0.24"
 
