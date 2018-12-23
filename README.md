@@ -14,7 +14,7 @@ Much time, skill and effort has gone into this. Help support the project
 -------------
 
 ### Usage
-````actionscript
+```actionscript
 // Create a new zip file. 
 var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
 zipFile.addEventListener(CompressProgressEvent.PROGRESS, onCompressProgress);
@@ -34,7 +34,7 @@ private function onCompressComplete(event:CompressEvent):void {
 var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
 zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
 
-````` 
+``` 
 
 -------------
 
@@ -43,9 +43,9 @@ zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
 #### The ANE + Dependencies
 
 From the command line cd into /example-desktop and run:
-````shell
+```shell
 PS get_dependencies.ps1
-`````
+```
 
 ##### Windows Installation - Important!
 * Copy the contents of the "c_sharp_libs_x86" folder into the bin folder of your AIRSDK. 
@@ -75,9 +75,9 @@ If you are using the 64bit version for release follow the above instructions rep
 
 From the command line cd into /example-desktop and run:
 
-````shell
+```shell
 bash get_dependencies.sh
-`````
+```
 
 ## Android
 
@@ -85,15 +85,15 @@ bash get_dependencies.sh
 
 cd into /example-mobile and run:
 - OSX (Terminal)
-````shell
+```shell
 bash get_android_dependencies.sh
-`````
+```
 - Windows Powershell
-````shell
+```shell
 PS get_android_dependencies.ps1
-`````
+```
 
-````xml
+```xml
 <extensions>
 <extensionID>com.tuarua.frekotlin</extensionID>
 <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
@@ -101,16 +101,16 @@ PS get_android_dependencies.ps1
 <extensionID>com.google.code.gson.gson</extensionID>
 ...
 </extensions>
-`````
+```
 
 You will also need to include the following in your app manifest. Update accordingly.
 
-````xml
+```xml
 <manifest>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 </manifest>
-`````
+```
 
 -------------
 
@@ -122,9 +122,9 @@ N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT suppo
 
 From the command line cd into /example-mobile and run:
 
-````shell
+```shell
 bash get_ios_dependencies.sh
-`````
+```
 
 This folder, ios_dependencies/device/Frameworks, must be packaged as part of your app when creating the ipa. How this is done will depend on the IDE you are using.
 After the ipa is created unzip it and confirm there is a "Frameworks" folder in the root of the .app package.
