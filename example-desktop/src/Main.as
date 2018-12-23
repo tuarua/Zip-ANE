@@ -1,5 +1,5 @@
 package {
-import com.tuarua.CommonDependencies;
+import com.tuarua.FreSwift;
 import com.tuarua.ZipANE;
 import com.tuarua.zipane.ZipFile;
 import com.tuarua.zipane.events.CompressEvent;
@@ -23,7 +23,7 @@ import views.SimpleButton;
 
 [SWF(width="800", height="600", frameRate="60", backgroundColor="#FFFFFF")]
 public class Main extends Sprite {
-    private var commonDependenciesANE:CommonDependencies = new CommonDependencies(); //must create before all others
+    private var freSwiftANE:FreSwift = new FreSwift(); //must create before all others
     public static const FONT:Font = new FiraSansSemiBold();
     private var btnZip:SimpleButton = new SimpleButton("Zip Files");
     private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
@@ -134,7 +134,7 @@ public class Main extends Sprite {
 
     private function onExiting(event:Event):void {
         ZipANE.dispose();
-        commonDependenciesANE.dispose();
+        freSwiftANE.dispose();
     }
 
 }

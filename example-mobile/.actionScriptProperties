@@ -42,7 +42,7 @@
       <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="android_dependencies/com.tuarua.frekotlin.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="android_dependencies/com.google.code.gson.gson-2.8.4.ane"/>
-      <libraryPathEntry kind="5" linkType="2" path="android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.0.1.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -75,7 +75,7 @@
           <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
           <anePathEntry path="android_dependencies/com.tuarua.frekotlin.ane"/>
           <anePathEntry path="android_dependencies/com.google.code.gson.gson-2.8.4.ane"/>
-          <anePathEntry path="android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0.ane"/>
+          <anePathEntry path="android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.0.1.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>

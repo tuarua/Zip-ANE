@@ -8,7 +8,7 @@ PROJECTNAME=ZipANE
 fwSuffix="_FW"
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_31"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
 
 

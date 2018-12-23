@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90E0839B21A9E21F00E9651A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839A21A9E21F00E9651A /* Cocoa.framework */; };
+		90E0839D21A9E2BB00E9651A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839C21A9E2BB00E9651A /* libz.tbd */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE0560451FB25DD000D06976 /* ZipANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* ZipANE_FW.framework */; };
@@ -31,7 +33,6 @@
 		CE2BC268205E9D1F00B4251A /* ExtractEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC255205E8D0A00B4251A /* ExtractEvent.swift */; };
 		CE2BC269205E9D1F00B4251A /* ExtractProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC257205E8D2E00B4251A /* ExtractProgressEvent.swift */; };
 		CE2BC26A205E9D1F00B4251A /* ZipErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC259205E8D5500B4251A /* ZipErrorEvent.swift */; };
-		CE61EC9A205DE906003B67D9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE61EC99205DE906003B67D9 /* libz.tbd */; };
 		CE61ECA9205DE979003B67D9 /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9C205DE979003B67D9 /* ZipUtilities.swift */; };
 		CE61ECAA205DE97A003B67D9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9E205DE979003B67D9 /* unzip.c */; };
 		CE61ECAB205DE97A003B67D9 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9F205DE979003B67D9 /* zip.c */; };
@@ -45,7 +46,6 @@
 		CE6DC5AE20542E3100E20217 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103F203889A1004FD8B4 /* SwiftyJSON.h */; };
 		CE6DC5AF20542E3800E20217 /* ZipANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103A20388975004FD8B4 /* ZipANE_oc.h */; };
 		CE6DC5B020542E3B00E20217 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE6DC5B220542E5B00E20217 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC5B120542E4C00E20217 /* Cocoa.framework */; };
 		CE6DC5B420542E7800E20217 /* Adobe AIR_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC5A020542D2800E20217 /* Adobe AIR_64 */; };
 		CE6DC5B520542E7A00E20217 /* Adobe AIR in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC59F20542D2800E20217 /* Adobe AIR */; };
 		CE6DC5B920542EA200E20217 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881049203889B6004FD8B4 /* URL.swift */; };
@@ -79,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90E0839A21A9E21F00E9651A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		90E0839C21A9E2BB00E9651A /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
 		CE2BC253205E8CD100B4251A /* CompressProgressEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressProgressEvent.swift; sourceTree = "<group>"; };
@@ -86,7 +88,6 @@
 		CE2BC257205E8D2E00B4251A /* ExtractProgressEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractProgressEvent.swift; sourceTree = "<group>"; };
 		CE2BC259205E8D5500B4251A /* ZipErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipErrorEvent.swift; sourceTree = "<group>"; };
 		CE2BC263205E9CFB00B4251A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		CE61EC99205DE906003B67D9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		CE61EC9C205DE979003B67D9 /* ZipUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUtilities.swift; sourceTree = "<group>"; };
 		CE61EC9E205DE979003B67D9 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
 		CE61EC9F205DE979003B67D9 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
@@ -98,12 +99,10 @@
 		CE61ECA5205DE979003B67D9 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
 		CE61ECA7205DE979003B67D9 /* Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zip.h; sourceTree = "<group>"; };
 		CE61ECA8205DE979003B67D9 /* Zip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
-		CE6DC59F20542D2800E20217 /* Adobe AIR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR"; path = "../../../../../SDKs/AIRSDK_31/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR"; sourceTree = "<group>"; };
-		CE6DC5A020542D2800E20217 /* Adobe AIR_64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR_64"; path = "../../../../../SDKs/AIRSDK_31/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR_64"; sourceTree = "<group>"; };
+		CE6DC59F20542D2800E20217 /* Adobe AIR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR"; path = "../../../../../SDKs/AIRSDK_32/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR"; sourceTree = "<group>"; };
+		CE6DC5A020542D2800E20217 /* Adobe AIR_64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "Adobe AIR_64"; path = "../../../../../SDKs/AIRSDK_32/runtimes/air-captive/mac/Adobe AIR.framework/Versions/1.0/Adobe AIR_64"; sourceTree = "<group>"; };
 		CE6DC5A620542D5600E20217 /* ZipANE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZipANE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE6DC5B120542E4C00E20217 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		CE6DC5C420542F0000E20217 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/Mac/FreSwift.framework; sourceTree = "<group>"; };
-		CE6DC5F32054362000E20217 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/tvOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE87F4751FB259DB005CF7DF /* libZipANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZipANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87F4831FB259FA005CF7DF /* ZipANE_FW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZipANE_FW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87F4851FB259FA005CF7DF /* ZipANE_FW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZipANE_FW.h; sourceTree = "<group>"; };
@@ -125,10 +124,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE61EC9A205DE906003B67D9 /* libz.tbd in Frameworks */,
+				90E0839B21A9E21F00E9651A /* Cocoa.framework in Frameworks */,
+				90E0839D21A9E2BB00E9651A /* libz.tbd in Frameworks */,
 				CE6DC5B420542E7800E20217 /* Adobe AIR_64 in Frameworks */,
 				CE6DC5B520542E7A00E20217 /* Adobe AIR in Frameworks */,
-				CE6DC5B220542E5B00E20217 /* Cocoa.framework in Frameworks */,
 				CE6DC5C520542F0000E20217 /* FreSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,11 +156,10 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE61EC99205DE906003B67D9 /* libz.tbd */,
+				90E0839C21A9E2BB00E9651A /* libz.tbd */,
+				90E0839A21A9E21F00E9651A /* Cocoa.framework */,
 				CE2BC263205E9CFB00B4251A /* libz.tbd */,
 				CE6DC5C420542F0000E20217 /* FreSwift.framework */,
-				CE6DC5F32054362000E20217 /* FreSwift.framework */,
-				CE6DC5B120542E4C00E20217 /* Cocoa.framework */,
 				CE6DC59F20542D2800E20217 /* Adobe AIR */,
 				CE6DC5A020542D2800E20217 /* Adobe AIR_64 */,
 				CE05603E1FB25CE200D06976 /* FreSwift.framework */,
@@ -406,7 +404,7 @@
 				};
 			};
 			buildConfigurationList = CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "ZipANE" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -440,16 +438,16 @@
 		};
 		CE6DC5C72054339500E20217 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/ane/build.sh;
+			shellScript = "../../../native_extension/ane/build.sh\n";
 		};
 		CE88105D203890E0004FD8B4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -475,7 +473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/ane/build.sh;
+			shellScript = "../../../native_extension/ane/build.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -548,7 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
@@ -565,10 +563,14 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				INFOPLIST_FILE = "$(SRCROOT)/ZipANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
@@ -583,7 +585,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ZipANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -593,7 +595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
@@ -610,10 +612,14 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				INFOPLIST_FILE = "$(SRCROOT)/ZipANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = /Users/eoinlandy/SDKs/AIRSDK_30/runtimes/air/mac;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
@@ -628,7 +634,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ZipANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -640,8 +646,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -698,8 +704,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -740,7 +746,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -757,8 +764,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ZipANE_LIB;
 				SKIP_INSTALL = YES;
@@ -779,8 +791,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ZipANE_LIB;
 				SKIP_INSTALL = YES;
@@ -805,10 +822,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				INFOPLIST_FILE = "$(SRCROOT)/ZipANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.ZipANE;
 				PRODUCT_NAME = ZipANE_FW;
@@ -818,7 +840,7 @@
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -842,19 +864,25 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				INFOPLIST_FILE = "$(SRCROOT)/ZipANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.ZipANE;
 				PRODUCT_NAME = ZipANE_FW;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

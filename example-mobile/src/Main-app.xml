@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/30.0">
+<application xmlns="http://ns.adobe.com/air/application/32.0">
 
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
@@ -13,7 +13,7 @@
     May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <name>ZipANESample</name>
 
-    <versionNumber>0.0.2</versionNumber>
+    <versionNumber>1.0.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
