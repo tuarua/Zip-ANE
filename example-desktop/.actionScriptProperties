@@ -34,7 +34,7 @@
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
       <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
-      <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/CommonDependencies.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/Zip-ANE/native_extension/ane/FreSwift.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -53,7 +53,7 @@
         <airExcludes/>
         <anePaths>
           <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/ZipANE.ane"/>
-          <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/CommonDependencies.ane"/>
+          <anePathEntry path="${DOCUMENTS}/Zip-ANE/native_extension/ane/FreSwift.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>

@@ -17,7 +17,7 @@ import Foundation
 import FreSwift
 
 class ZipController: NSObject, FreSwiftController {
-    var TAG: String? = "ZipController"
+    public static var TAG = "ZipController"
     var context: FreContextSwift!
     internal let backgroundQueue = DispatchQueue(label: "com.tuarua.zipane.backgroundQueue", qos: .background)
     

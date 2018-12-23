@@ -26,14 +26,16 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
-import kotlin.coroutines.experimental.CoroutineContext
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
+
 import java.util.zip.ZipFile
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST")
 class KotlinController : FreKotlinMainController {
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private val gson = Gson()
     private var fileList = mutableListOf<Pair<String, Long>>()
     private var bytesTotal: Long = 0L
@@ -47,11 +49,7 @@ class KotlinController : FreKotlinMainController {
         val path = String(argv[0]) ?: return FreConversionException("path")
         val directory = String(argv[1]) ?: return FreConversionException("directory")
 
-        launch(bgContext, onCompletion = {
-            dispatchEvent(CompressEvent.COMPLETE, gson.toJson(CompressEvent(path)))
-            fileList.clear()
-            bytesTotal = 0
-        }) {
+        GlobalScope.launch(bgContext) {
             try {
                 val fileOutputStream = FileOutputStream(path)
                 val zipOutputStream = ZipOutputStream(fileOutputStream)
@@ -77,6 +75,9 @@ class KotlinController : FreKotlinMainController {
             } catch (e: Exception) {
                 dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
             }
+            dispatchEvent(CompressEvent.COMPLETE, gson.toJson(CompressEvent(path)))
+            fileList.clear()
+            bytesTotal = 0
         }
         return null
     }
@@ -103,9 +104,7 @@ class KotlinController : FreKotlinMainController {
         bytesTotal = 0L
         var bytes = 0L
         var ePath = entryPath
-        launch(bgContext, onCompletion = {
-            dispatchEvent(ExtractEvent.COMPLETE, gson.toJson(CompressEvent(path)))
-        }) {
+        GlobalScope.launch(bgContext) {
             try {
                 createDirectory(to, "")
                 ZipFile(path).use { zip ->
@@ -152,6 +151,7 @@ class KotlinController : FreKotlinMainController {
             } catch (e: Exception) {
                 dispatchEvent(ZipErrorEvent.ERROR, gson.toJson(ZipErrorEvent(path, e.message)))
             }
+            dispatchEvent(ExtractEvent.COMPLETE, gson.toJson(CompressEvent(path)))
         }
 
     }
