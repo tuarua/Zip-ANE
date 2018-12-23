@@ -132,6 +132,7 @@ After the ipa is created unzip it and confirm there is a "Frameworks" folder in 
 ### Modifications to the AIR SDK
 
 For iOS we need some additions to the AIRSDK. 
+
 Copy the files from **AIRSDK_additions** into the corresponding folders in your AIRSDK.
 
 ### Prerequisites
