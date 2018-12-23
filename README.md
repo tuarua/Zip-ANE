@@ -139,9 +139,8 @@ Copy the files from **AIRSDK_additions** into the corresponding folders in your 
 You will need:
 
 - IntelliJ IDEA / Flash Builder
-- AIR 29
+- AIR 32
 - Android Studio 3 if you wish to edit the Android source
-- Xcode 9.4.1 if you wish to edit the iOS source
 - wget on OSX
 - Powershell on Windows
 
