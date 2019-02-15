@@ -46,8 +46,8 @@ class KotlinController : FreKotlinMainController {
 
     fun compress(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("compress")
-        val path = String(argv[0]) ?: return FreConversionException("path")
-        val directory = String(argv[1]) ?: return FreConversionException("directory")
+        val path = String(argv[0]) ?: return null
+        val directory = String(argv[1]) ?: return null
 
         GlobalScope.launch(bgContext) {
             try {
@@ -85,17 +85,17 @@ class KotlinController : FreKotlinMainController {
 
     fun extract(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("extract")
-        val path = String(argv[0]) ?: return FreConversionException("path")
-        val to = String(argv[1]) ?: return FreConversionException("to")
+        val path = String(argv[0]) ?: return null
+        val to = String(argv[1]) ?: return null
         extract(path, to)
         return null
     }
 
     fun extractEntry(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("extractEntry")
-        val path = String(argv[0]) ?: return FreConversionException("path")
-        val entryPath = String(argv[1]) ?: return FreConversionException("entryPath")
-        val to = String(argv[2]) ?: return FreConversionException("to")
+        val path = String(argv[0]) ?: return null
+        val entryPath = String(argv[1]) ?: return null
+        val to = String(argv[2]) ?: return null
         extract(path, to, entryPath)
         return null
     }
@@ -181,5 +181,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }
