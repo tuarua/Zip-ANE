@@ -1,3 +1,7 @@
+### 1.1.0
+- WIN: Updated to FreSharp 2.2.0
+- Upgraded to AIR 32.0.0.116
+
 ### 1.0.0
 - WIN: Updated to FreSharp 2.1.0
 - OSX/iOS: Updated to FreSwift 3.0.0

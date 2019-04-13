@@ -1,5 +1,5 @@
 ﻿namespace ZipLib {
-    public class ZipErrorEvent {
+    public static class ZipErrorEvent {
         public const string OnError = "ZIPANE.Error";
     }
 }
