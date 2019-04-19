@@ -10,6 +10,8 @@ using System.IO.Compression;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
+// ReSharper disable UnusedMember.Global
+
 namespace ZipLib {
     public class MainController : FreSharpMainController {
         public string[] GetFunctions() {
@@ -23,7 +25,7 @@ namespace ZipLib {
             return FunctionsDict.Select(kvp => kvp.Key).ToArray();
         }
 
-        public FREObject Compress(FREContext ctx, uint argc, FREObject[] argv) {
+        private FREObject Compress(FREContext ctx, uint argc, FREObject[] argv) {
             if (argc < 2) return new FreException("Not enough args sent to Compress").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
@@ -49,7 +51,7 @@ namespace ZipLib {
         }
 
 
-        public FREObject Extract(FREContext ctx, uint argc, FREObject[] argv) {
+        private FREObject Extract(FREContext ctx, uint argc, FREObject[] argv) {
             if (argc < 2) return new FreException("Not enough args sent to Extract").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
@@ -73,7 +75,7 @@ namespace ZipLib {
             return FREObject.Zero;
         }
 
-        public FREObject ExtractEntry(FREContext ctx, uint argc, FREObject[] argv) {
+        private FREObject ExtractEntry(FREContext ctx, uint argc, FREObject[] argv) {
             if (argc < 3) return new FreException("Not enough args sent to ExtractEntry").RawValue;
             if (argv[0] == FREObject.Zero) return FREObject.Zero;
             if (argv[1] == FREObject.Zero) return FREObject.Zero;
@@ -201,7 +203,8 @@ namespace ZipLib {
             return totalSize;
         }
 
-        public FREObject InitController(FREContext ctx, uint argc, FREObject[] argv) {
+        private FREObject InitController(FREContext ctx, uint argc, FREObject[] argv) {
+            FreSharpLogger.GetInstance().Context = Context;
             return true.ToFREObject();
         }
 

@@ -1,5 +1,5 @@
 ﻿namespace ZipLib {
-    public class CompressEvent {
+    public static class CompressEvent {
         public const string OnComplete = "ZIPANE.OnCompressComplete";
     }
 }

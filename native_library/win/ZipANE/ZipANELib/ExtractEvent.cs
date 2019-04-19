@@ -1,5 +1,5 @@
 ﻿namespace ZipLib {
-    public class ExtractEvent {
+    public static class ExtractEvent {
         public const string OnComplete = "ZIPANE.OnExtractComplete";
     }
 }
