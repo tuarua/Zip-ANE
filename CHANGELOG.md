@@ -1,3 +1,6 @@
+### 1.2.0
+- WIN: updated Json.NET to 12.0.2
+
 ### 1.1.0
 - Upgraded to AIR 32.0.0.116
 - AND: Updated to FreKotlin 1.7.0
