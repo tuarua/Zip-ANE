@@ -1,6 +1,6 @@
 # Zip-ANE
 
-Zip Adobe Air Native Extension for Windows, OSX, iOS 9.0+ and Android 19+.    
+Zip Adobe Air Native Extension for Windows, macOS, iOS 9.0+ and Android 19+.    
 This ANE provides an identical cross platform API for creating and extracting .zip files   
 
 [ASDocs Documentation](https://tuarua.github.io/asdocs/zipane/index.html)  
@@ -69,7 +69,7 @@ However it appears adl.exe is 32bit only. Therefore when debugging use x86 versi
 If you are using the 64bit version for release follow the above instructions replacing x86 with x64 where applicable
 
 
-## OSX
+## macOS
 
 #### The ANE + Dependencies
 
@@ -136,7 +136,7 @@ You will need:
 - IntelliJ IDEA / Flash Builder
 - AIR 32.0.0.103 or greater
 - Android Studio 3 if you wish to edit the Android source
-- wget on OSX
+- wget on macOS
 - Powershell on Windows
 
 ### Task List
