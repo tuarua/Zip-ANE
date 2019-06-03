@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="1.2.0"
+AneVersion="1.3.0"
 GsonVersion="2.8.4"
 KotlinxCoroutinesVersion="1.0.1"
 

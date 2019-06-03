@@ -44,30 +44,18 @@ zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
 
 From the command line cd into /example-desktop and run:
 ```shell
-PS get_dependencies.ps1
+get_dependencies.ps1
 ```
 
 ##### Windows Installation - Important!
-* Copy the contents of the "c_sharp_libs_x86" folder into the bin folder of your AIRSDK. 
-
-The location of this will vary depending on your IDE. These dlls need to reside in the folder where adl.exe is run from.
+The C# binaries(dlls) are now packaged inside the ANE. All of these **need to be deleted** from your AIRSDK.     
+FreSharp.ane is now a required dependency for Windows. 
 
 * This ANE was built with MS Visual Studio 2015. As such your machine (and user's machines) will need to have Microsoft Visual C++ 2015 Redistributable (x86) runtime installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48145
 
 * This ANE also uses .NET 4.6 Framework. As such your machine (and user's machines) will need to have to have this installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48130
-
-* For release builds, the c_sharp_libs_x86 files need to be packaged in the same folder as your exe.  
-It is highly recommended you package your app for release using an installer.  
-
-##### Windows 64bit
-
-AIR29 now includes 32bit and 64bit in the AIR SDK.
-However it appears adl.exe is 32bit only. Therefore when debugging use x86 version of the csharp dlls.
-
-If you are using the 64bit version for release follow the above instructions replacing x86 with x64 where applicable
-
 
 ## macOS
 
@@ -84,7 +72,7 @@ bash get_dependencies.sh
 #### The ANE + Dependencies
 
 cd into /example-mobile and run:
-- OSX (Terminal)
+- macOS (Terminal)
 ```shell
 bash get_android_dependencies.sh
 ```
