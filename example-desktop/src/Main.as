@@ -1,4 +1,5 @@
 package {
+import com.tuarua.FreSharp;
 import com.tuarua.FreSwift;
 import com.tuarua.ZipANE;
 import com.tuarua.zipane.ZipFile;
@@ -23,7 +24,8 @@ import views.SimpleButton;
 
 [SWF(width="800", height="600", frameRate="60", backgroundColor="#FFFFFF")]
 public class Main extends Sprite {
-    private var freSwiftANE:FreSwift = new FreSwift(); //must create before all others
+    private var freSharpANE:FreSharp = new FreSharp(); // must create before all others
+    private var freSwiftANE:FreSwift = new FreSwift(); // must create before all others
     public static const FONT:Font = new FiraSansSemiBold();
     private var btnZip:SimpleButton = new SimpleButton("Zip Files");
     private var btnExtract:SimpleButton = new SimpleButton("Extract Zip");
@@ -118,6 +120,8 @@ public class Main extends Sprite {
     private static function copyEmbedFiles():void {
         var inFile1:File = File.applicationDirectory.resolvePath("zipme.zip");
         var outFile1:File = File.applicationStorageDirectory.resolvePath("zipme.zip");
+        trace(inFile1.nativePath);
+        trace("inFile1.exists", inFile1.exists);
         if (inFile1.exists) {
             inFile1.copyTo(outFile1, true);
         }
@@ -135,6 +139,7 @@ public class Main extends Sprite {
     private function onExiting(event:Event):void {
         ZipANE.dispose();
         freSwiftANE.dispose();
+        freSharpANE.dispose();
     }
 
 }
