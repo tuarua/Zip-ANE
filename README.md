@@ -72,7 +72,7 @@ bash get_dependencies.sh
 #### The ANE + Dependencies
 
 cd into /example-mobile and run:
-- OSX (Terminal)
+- macOS (Terminal)
 ```shell
 bash get_android_dependencies.sh
 ```
