@@ -1,7 +1,6 @@
 ### 1.4.0
 - AND: Updated to FreKotlin 1.8.0
 - Updated to AIR 33 ARM 64bit
-- Remove Android-x86
 
 ### 1.3.0
 - WIN: C# binaries are now packaged inside the ANE. All of these need to be deleted from your AIRSDK 

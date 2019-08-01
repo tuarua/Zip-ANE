@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/32.0">
+
+
+    <!-- A universally unique application identifier. Must be unique across all AIR applications.
+    Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+    <id>com.tuarua.zipanesample</id>
+
+    <!-- Used as the filename for the application. Required. -->
+    <filename>ZipANESample</filename>
+
+    <!-- The name that is displayed in the AIR application installer.
+    May have multiple values for each language. See samples or xsd schema file. Optional. -->
+    <name>ZipANESample</name>
+
+    <versionNumber>1.4.0</versionNumber>
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <!-- The main SWF or HTML file of the application. Required. -->
+        <!-- Note: In Flash Builder, the SWF reference is set automatically. -->
+        <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+
+
+        <!-- The aspect ratio ("portrait", "landscape", or "any"). Optional. -->
+        <aspectRatio>portrait</aspectRatio>
+
+        <!-- Whether the app will begin auto-orienting on launch. Optional. Default false -->
+        <autoOrients>false</autoOrients>
+
+        <!-- Whether the app launches in full screen. Optional. Mobile only. Default false -->
+        <!-- (On iOS, this decides if the StatusBar is visible or not.) -->
+        <fullScreen>true</fullScreen>
+
+        <!-- Either auto, cpu, gpu, or direct. Default auto -->
+        <renderMode>direct</renderMode>
+
+        <!-- Whether direct mode allocates storage for depth and stencil buffers. Default false -->
+        <depthAndStencil>true</depthAndStencil>
+
+        <visible>true</visible>
+    </initialWindow>
+
+
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image76x76>AppIcon76x76~ipad.png</image76x76>
+        <image120x120>AppIcon60x60@2x.png</image120x120>
+        <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+        <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+        <image180x180>AppIcon60x60@3x.png</image180x180>
+    </icon>
+
+    <!-- iOS specific capabilities -->
+    <iPhone>
+        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
+        <InfoAdditions>
+            <![CDATA[
+            <key>UIDeviceFamily</key>
+            <array>
+                <!-- iPhone and iPod touch devices -->
+                <string>1</string>
+                <!-- iPad devices -->
+                <string>2</string>
+            </array>
+            <key>MinimumOSVersion</key>
+            <string>9.0</string>
+            ]]>
+        </InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    <extensions>
+        <extensionID>com.tuarua.ZipANE</extensionID>
+    </extensions>
+</application>

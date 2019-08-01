@@ -78,24 +78,6 @@
         </manifestAdditions>
     </android>
 
-    <!-- iOS specific capabilities -->
-    <iPhone>
-        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
-        <InfoAdditions>
-            <![CDATA[
-            <key>UIDeviceFamily</key>
-            <array>
-                <!-- iPhone and iPod touch devices -->
-                <string>1</string>
-                <!-- iPad devices -->
-                <string>2</string>
-            </array>
-            <key>MinimumOSVersion</key>
-            <string>9.0</string>
-            ]]>
-        </InfoAdditions>
-        <requestedDisplayResolution>high</requestedDisplayResolution>
-    </iPhone>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
