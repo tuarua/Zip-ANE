@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/32.0">
+<application xmlns="http://ns.adobe.com/air/application/33.0">
 
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
@@ -13,7 +13,7 @@
     May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <name>ZipANESample</name>
 
-    <versionNumber>1.1.0</versionNumber>
+    <versionNumber>1.4.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -58,6 +58,7 @@
         <manifestAdditions>
             <![CDATA[
              <manifest android:installLocation="auto">
+                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
                  <uses-permission android:name="android.permission.INTERNET"/>
                  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
                  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -77,24 +78,6 @@
         </manifestAdditions>
     </android>
 
-    <!-- iOS specific capabilities -->
-    <iPhone>
-        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
-        <InfoAdditions>
-            <![CDATA[
-            <key>UIDeviceFamily</key>
-            <array>
-                <!-- iPhone and iPod touch devices -->
-                <string>1</string>
-                <!-- iPad devices -->
-                <string>2</string>
-            </array>
-            <key>MinimumOSVersion</key>
-            <string>9.0</string>
-            ]]>
-        </InfoAdditions>
-        <requestedDisplayResolution>high</requestedDisplayResolution>
-    </iPhone>
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>

@@ -3,7 +3,7 @@
     <id>com.tuarua.ZipANE</id>
     <name>Zip ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>1.3.0</versionNumber>
+    <versionNumber>1.4.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
             <applicationDeployment>
@@ -43,6 +43,13 @@
         <platform name="default">
             <applicationDeployment/>
         </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.ZipANE</initializer>
+                <finalizer>com.tuarua.ZipANE</finalizer>
+            </applicationDeployment>
+        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
@@ -50,7 +57,7 @@
                 <finalizer>com.tuarua.ZipANE</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="Android-x86">
+        <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
                 <initializer>com.tuarua.ZipANE</initializer>
