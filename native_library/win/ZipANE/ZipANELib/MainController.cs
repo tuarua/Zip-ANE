@@ -26,9 +26,9 @@ namespace ZipLib {
         }
 
         private FREObject Compress(FREContext ctx, uint argc, FREObject[] argv) {
-            if (argc < 2) return new FreException("Not enough args sent to Compress").RawValue;
-            if (argv[0] == FREObject.Zero) return FREObject.Zero;
-            if (argv[1] == FREObject.Zero) return FREObject.Zero;
+            if (argc < 2) return new FreArgException().RawValue;
+            if (argv[0] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[1] == FREObject.Zero) return new FreArgException().RawValue;
             try {
                 var path = argv[0].AsString();
                 var directory = argv[1].AsString();
@@ -52,9 +52,9 @@ namespace ZipLib {
 
 
         private FREObject Extract(FREContext ctx, uint argc, FREObject[] argv) {
-            if (argc < 2) return new FreException("Not enough args sent to Extract").RawValue;
-            if (argv[0] == FREObject.Zero) return FREObject.Zero;
-            if (argv[1] == FREObject.Zero) return FREObject.Zero;
+            if (argc < 2) return new FreArgException().RawValue;
+            if (argv[0] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[1] == FREObject.Zero) return new FreArgException().RawValue;
             try {
                 var path = argv[0].AsString();
                 var directory = argv[1].AsString();
@@ -76,10 +76,10 @@ namespace ZipLib {
         }
 
         private FREObject ExtractEntry(FREContext ctx, uint argc, FREObject[] argv) {
-            if (argc < 3) return new FreException("Not enough args sent to ExtractEntry").RawValue;
-            if (argv[0] == FREObject.Zero) return FREObject.Zero;
-            if (argv[1] == FREObject.Zero) return FREObject.Zero;
-            if (argv[2] == FREObject.Zero) return FREObject.Zero;
+            if (argc < 3) return new FreArgException().RawValue;
+            if (argv[0] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[1] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[2] == FREObject.Zero) return new FreArgException().RawValue;
             try {
                 var path = argv[0].AsString();
                 var entryPath = argv[1].AsString();
