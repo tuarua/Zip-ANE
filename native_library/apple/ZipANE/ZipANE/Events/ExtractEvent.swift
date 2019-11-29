@@ -16,5 +16,5 @@
 import Foundation
 
 public struct ExtractEvent {
-    public static let COMPLETE: String = "ZIPANE.OnExtractComplete"
+    public static let COMPLETE = "ZIPANE.OnExtractComplete"
 }

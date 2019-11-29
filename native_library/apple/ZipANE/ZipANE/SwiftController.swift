@@ -32,10 +32,10 @@ public class SwiftController: NSObject {
             let mc = zipController,
             let path = String(argv[0]),
             let directory = String(argv[1]),
-            let safePath = URL.init(safe: path),
-            let safeDirectory = URL.init(safe: directory)
+            let safePath = URL(safe: path),
+            let safeDirectory = URL(safe: directory)
             else {
-                return FreArgError(message: "compress").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         mc.compress(path: safePath, directory: safeDirectory)
         return nil
@@ -46,10 +46,10 @@ public class SwiftController: NSObject {
             let mc = zipController,
             let path = String(argv[0]),
             let directory = String(argv[1]),
-            let safePath = URL.init(safe: path),
-            let safeDirectory = URL.init(safe: directory)
+            let safePath = URL(safe: path),
+            let safeDirectory = URL(safe: directory)
             else {
-                return FreArgError(message: "extract").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         mc.extract(path: safePath, directory: safeDirectory)
         return nil
@@ -61,10 +61,10 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let entryPath = String(argv[1]),
             let directory = String(argv[2]),
-            let safePath = URL.init(safe: path),
-            let safeDirectory = URL.init(safe: directory)
+            let safePath = URL(safe: path),
+            let safeDirectory = URL(safe: directory)
             else {
-                return FreArgError(message: "extractEntry").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         mc.extract(path: safePath, directory: safeDirectory, entryPath: entryPath)
         return nil

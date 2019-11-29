@@ -107,19 +107,7 @@ public struct JSON {
             self.init(NSNull())
         }
     }
-
-    /**
-     Creates a JSON from JSON string
-     - parameter string: Normal json string like '{"a":"b"}'
-
-     - returns: The created JSON
-     */
-    @available(*, deprecated: 3.2, message: "Use instead `init(parseJSON: )`")
-    public static func parse(_ json: String) -> JSON {
-        return json.data(using: String.Encoding.utf8)
-            .flatMap{ JSON(data: $0) } ?? JSON(NSNull())
-    }
-
+    
     /**
      Creates a JSON using the object.
 

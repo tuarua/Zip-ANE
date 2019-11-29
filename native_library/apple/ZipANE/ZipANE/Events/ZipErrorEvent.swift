@@ -16,5 +16,5 @@
 import Foundation
 
 public struct ZipErrorEvent {
-    public static let ERROR: String = "ZIPANE.Error"
+    public static let ERROR = "ZIPANE.Error"
 }

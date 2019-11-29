@@ -16,5 +16,5 @@
 import Foundation
 
 public struct CompressProgressEvent {
-    public static let PROGRESS: String = "ZIPANE.OnCompressProgress"
+    public static let PROGRESS = "ZIPANE.OnCompressProgress"
 }

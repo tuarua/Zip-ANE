@@ -1,8 +1,8 @@
 #!/bin/sh
 
-AneVersion="1.3.0"
-FreSwiftVersion="3.1.0"
-FreSharpVersion="2.2.0"
+AneVersion="1.5.0"
+FreSwiftVersion="4.1.0"
+FreSharpVersion="2.3.0"
 
 wget -O ../native_extension/ane/FreSwift.ane https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/FreSwift.ane?raw=true
 wget -O ../native_extension/ane/ZipANE.ane https://github.com/tuarua/Zip-ANE/releases/download/$AneVersion/ZipANE.ane?raw=true

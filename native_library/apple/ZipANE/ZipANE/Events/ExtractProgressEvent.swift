@@ -16,5 +16,5 @@
 import Foundation
 
 public struct ExtractProgressEvent {
-    public static let PROGRESS: String = "ZIPANE.OnExtractProgress"
+    public static let PROGRESS = "ZIPANE.OnExtractProgress"
 }

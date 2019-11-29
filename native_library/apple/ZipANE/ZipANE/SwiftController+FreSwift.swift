@@ -34,7 +34,6 @@ extension SwiftController: FreSwiftMainController {
     @objc public func dispose() {
     }
     
-    // Must have this function. It exposes the methods to our entry ObjC.
     @objc public func callSwiftFunction(name: String, ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         if let fm = functionsToSet[name] {
             return fm(ctx, argc, argv)

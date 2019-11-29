@@ -3,36 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		90E0839B21A9E21F00E9651A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839A21A9E21F00E9651A /* Cocoa.framework */; };
 		90E0839D21A9E2BB00E9651A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839C21A9E2BB00E9651A /* libz.tbd */; };
-		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE0560451FB25DD000D06976 /* ZipANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* ZipANE_FW.framework */; };
-		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		CE0560451FB25DD000D06976 /* ZipANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* ZipANE_FW.framework */; platformFilter = ios; };
+		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
+		CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
 		CE2BC254205E8CD100B4251A /* CompressProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC253205E8CD100B4251A /* CompressProgressEvent.swift */; };
 		CE2BC256205E8D0A00B4251A /* ExtractEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC255205E8D0A00B4251A /* ExtractEvent.swift */; };
 		CE2BC258205E8D2E00B4251A /* ExtractProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC257205E8D2E00B4251A /* ExtractProgressEvent.swift */; };
 		CE2BC25A205E8D5500B4251A /* ZipErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC259205E8D5500B4251A /* ZipErrorEvent.swift */; };
-		CE2BC25B205E9CB600B4251A /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9E205DE979003B67D9 /* unzip.c */; };
-		CE2BC25C205E9CBD00B4251A /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9F205DE979003B67D9 /* zip.c */; };
-		CE2BC25D205E9CCE00B4251A /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61ECA0205DE979003B67D9 /* ioapi.c */; };
-		CE2BC25E205E9CE400B4251A /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA1205DE979003B67D9 /* crypt.h */; };
-		CE2BC25F205E9CE400B4251A /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA2205DE979003B67D9 /* zip.h */; };
-		CE2BC260205E9CE400B4251A /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA3205DE979003B67D9 /* unzip.h */; };
-		CE2BC261205E9CE400B4251A /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA5205DE979003B67D9 /* ioapi.h */; };
-		CE2BC262205E9CE400B4251A /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA7205DE979003B67D9 /* Zip.h */; };
-		CE2BC264205E9CFB00B4251A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BC263205E9CFB00B4251A /* libz.tbd */; };
-		CE2BC265205E9D0E00B4251A /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9C205DE979003B67D9 /* ZipUtilities.swift */; };
-		CE2BC266205E9D0E00B4251A /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61ECA8205DE979003B67D9 /* Zip.swift */; };
-		CE2BC267205E9D1F00B4251A /* CompressProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC253205E8CD100B4251A /* CompressProgressEvent.swift */; };
-		CE2BC268205E9D1F00B4251A /* ExtractEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC255205E8D0A00B4251A /* ExtractEvent.swift */; };
-		CE2BC269205E9D1F00B4251A /* ExtractProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC257205E8D2E00B4251A /* ExtractProgressEvent.swift */; };
-		CE2BC26A205E9D1F00B4251A /* ZipErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC259205E8D5500B4251A /* ZipErrorEvent.swift */; };
+		CE2BC25B205E9CB600B4251A /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9E205DE979003B67D9 /* unzip.c */; platformFilter = ios; };
+		CE2BC25C205E9CBD00B4251A /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9F205DE979003B67D9 /* zip.c */; platformFilter = ios; };
+		CE2BC25D205E9CCE00B4251A /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61ECA0205DE979003B67D9 /* ioapi.c */; platformFilter = ios; };
+		CE2BC25E205E9CE400B4251A /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA1205DE979003B67D9 /* crypt.h */; platformFilter = ios; };
+		CE2BC25F205E9CE400B4251A /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA2205DE979003B67D9 /* zip.h */; platformFilter = ios; };
+		CE2BC260205E9CE400B4251A /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA3205DE979003B67D9 /* unzip.h */; platformFilter = ios; };
+		CE2BC261205E9CE400B4251A /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA5205DE979003B67D9 /* ioapi.h */; platformFilter = ios; };
+		CE2BC262205E9CE400B4251A /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA7205DE979003B67D9 /* Zip.h */; platformFilter = ios; };
+		CE2BC264205E9CFB00B4251A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BC263205E9CFB00B4251A /* libz.tbd */; platformFilter = ios; };
+		CE2BC265205E9D0E00B4251A /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9C205DE979003B67D9 /* ZipUtilities.swift */; platformFilter = ios; };
+		CE2BC266205E9D0E00B4251A /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61ECA8205DE979003B67D9 /* Zip.swift */; platformFilter = ios; };
+		CE2BC267205E9D1F00B4251A /* CompressProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC253205E8CD100B4251A /* CompressProgressEvent.swift */; platformFilter = ios; };
+		CE2BC268205E9D1F00B4251A /* ExtractEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC255205E8D0A00B4251A /* ExtractEvent.swift */; platformFilter = ios; };
+		CE2BC269205E9D1F00B4251A /* ExtractProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC257205E8D2E00B4251A /* ExtractProgressEvent.swift */; platformFilter = ios; };
+		CE2BC26A205E9D1F00B4251A /* ZipErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BC259205E8D5500B4251A /* ZipErrorEvent.swift */; platformFilter = ios; };
 		CE61ECA9205DE979003B67D9 /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9C205DE979003B67D9 /* ZipUtilities.swift */; };
 		CE61ECAA205DE97A003B67D9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9E205DE979003B67D9 /* unzip.c */; };
 		CE61ECAB205DE97A003B67D9 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CE61EC9F205DE979003B67D9 /* zip.c */; };
@@ -56,16 +56,16 @@
 		CE6DC5C020542EC800E20217 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104D203889B7004FD8B4 /* SwiftController+FreSwift.swift */; };
 		CE6DC5C320542ED500E20217 /* ZipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881043203889B6004FD8B4 /* ZipController.swift */; };
 		CE6DC5C520542F0000E20217 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC5C420542F0000E20217 /* FreSwift.framework */; };
-		CE87F4871FB259FA005CF7DF /* ZipANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* ZipANE_FW.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE88103B20388976004FD8B4 /* ZipANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE88103920388975004FD8B4 /* ZipANE.m */; };
-		CE88103C20388976004FD8B4 /* ZipANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103A20388975004FD8B4 /* ZipANE_oc.h */; };
-		CE881040203889A2004FD8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */; };
-		CE881041203889A2004FD8B4 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103F203889A1004FD8B4 /* SwiftyJSON.h */; };
-		CE881051203889B7004FD8B4 /* ZipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881043203889B6004FD8B4 /* ZipController.swift */; };
-		CE881056203889B7004FD8B4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881049203889B6004FD8B4 /* URL.swift */; };
-		CE881059203889B7004FD8B4 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104C203889B6004FD8B4 /* SwiftController.swift */; };
-		CE88105A203889B7004FD8B4 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104D203889B7004FD8B4 /* SwiftController+FreSwift.swift */; };
-		CE88105B203889B7004FD8B4 /* CompressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104F203889B7004FD8B4 /* CompressEvent.swift */; };
+		CE87F4871FB259FA005CF7DF /* ZipANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* ZipANE_FW.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		CE88103B20388976004FD8B4 /* ZipANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE88103920388975004FD8B4 /* ZipANE.m */; platformFilter = ios; };
+		CE88103C20388976004FD8B4 /* ZipANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103A20388975004FD8B4 /* ZipANE_oc.h */; platformFilter = ios; };
+		CE881040203889A2004FD8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */; platformFilter = ios; };
+		CE881041203889A2004FD8B4 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103F203889A1004FD8B4 /* SwiftyJSON.h */; platformFilter = ios; };
+		CE881051203889B7004FD8B4 /* ZipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881043203889B6004FD8B4 /* ZipController.swift */; platformFilter = ios; };
+		CE881056203889B7004FD8B4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881049203889B6004FD8B4 /* URL.swift */; platformFilter = ios; };
+		CE881059203889B7004FD8B4 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104C203889B6004FD8B4 /* SwiftController.swift */; platformFilter = ios; };
+		CE88105A203889B7004FD8B4 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104D203889B7004FD8B4 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
+		CE88105B203889B7004FD8B4 /* CompressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104F203889B7004FD8B4 /* CompressEvent.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,11 +384,12 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					CE6DC5A520542D5600E20217 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Manual;
 					};
 					CE87F4741FB259DB005CF7DF = {
@@ -398,17 +399,18 @@
 					};
 					CE87F4821FB259FA005CF7DF = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "ZipANE" */;
 			compatibilityVersion = "Xcode 10.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
@@ -536,6 +538,7 @@
 /* Begin PBXTargetDependency section */
 		CE0560471FB25DD600D06976 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CE87F4821FB259FA005CF7DF /* ZipANE_FW (iOS) */;
 			targetProxy = CE0560461FB25DD600D06976 /* PBXContainerItemProxy */;
 		};
@@ -585,7 +588,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ZipANE-Swift.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -634,7 +637,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ZipANE-Swift.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -644,6 +647,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -702,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -840,7 +845,7 @@
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -882,7 +887,7 @@
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
