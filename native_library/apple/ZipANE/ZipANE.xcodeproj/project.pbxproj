@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900B708B2397CE640071EFBF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 900B708A2397CE640071EFBF /* SwiftyJSON */; };
+		900B708D2397CE740071EFBF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 900B708C2397CE740071EFBF /* SwiftyJSON */; };
 		90E0839B21A9E21F00E9651A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839A21A9E21F00E9651A /* Cocoa.framework */; };
 		90E0839D21A9E2BB00E9651A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E0839C21A9E2BB00E9651A /* libz.tbd */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
@@ -43,7 +45,6 @@
 		CE61ECB0205DE97A003B67D9 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA5205DE979003B67D9 /* ioapi.h */; };
 		CE61ECB2205DE97A003B67D9 /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE61ECA7205DE979003B67D9 /* Zip.h */; };
 		CE61ECB3205DE97A003B67D9 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61ECA8205DE979003B67D9 /* Zip.swift */; };
-		CE6DC5AE20542E3100E20217 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103F203889A1004FD8B4 /* SwiftyJSON.h */; };
 		CE6DC5AF20542E3800E20217 /* ZipANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103A20388975004FD8B4 /* ZipANE_oc.h */; };
 		CE6DC5B020542E3B00E20217 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CE6DC5B420542E7800E20217 /* Adobe AIR_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC5A020542D2800E20217 /* Adobe AIR_64 */; };
@@ -52,15 +53,12 @@
 		CE6DC5BA20542EAA00E20217 /* ZipANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE88103920388975004FD8B4 /* ZipANE.m */; };
 		CE6DC5BC20542EB400E20217 /* CompressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104F203889B7004FD8B4 /* CompressEvent.swift */; };
 		CE6DC5BE20542EBD00E20217 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104C203889B6004FD8B4 /* SwiftController.swift */; };
-		CE6DC5BF20542EC400E20217 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */; };
 		CE6DC5C020542EC800E20217 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104D203889B7004FD8B4 /* SwiftController+FreSwift.swift */; };
 		CE6DC5C320542ED500E20217 /* ZipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881043203889B6004FD8B4 /* ZipController.swift */; };
 		CE6DC5C520542F0000E20217 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DC5C420542F0000E20217 /* FreSwift.framework */; };
 		CE87F4871FB259FA005CF7DF /* ZipANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* ZipANE_FW.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		CE88103B20388976004FD8B4 /* ZipANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE88103920388975004FD8B4 /* ZipANE.m */; platformFilter = ios; };
 		CE88103C20388976004FD8B4 /* ZipANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103A20388975004FD8B4 /* ZipANE_oc.h */; platformFilter = ios; };
-		CE881040203889A2004FD8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */; platformFilter = ios; };
-		CE881041203889A2004FD8B4 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88103F203889A1004FD8B4 /* SwiftyJSON.h */; platformFilter = ios; };
 		CE881051203889B7004FD8B4 /* ZipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881043203889B6004FD8B4 /* ZipController.swift */; platformFilter = ios; };
 		CE881056203889B7004FD8B4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE881049203889B6004FD8B4 /* URL.swift */; platformFilter = ios; };
 		CE881059203889B7004FD8B4 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88104C203889B6004FD8B4 /* SwiftController.swift */; platformFilter = ios; };
@@ -110,8 +108,6 @@
 		CE8810382038888D004FD8B4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CE88103920388975004FD8B4 /* ZipANE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipANE.m; sourceTree = "<group>"; };
 		CE88103A20388975004FD8B4 /* ZipANE_oc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipANE_oc.h; sourceTree = "<group>"; };
-		CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		CE88103F203889A1004FD8B4 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		CE881043203889B6004FD8B4 /* ZipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipController.swift; sourceTree = "<group>"; };
 		CE881049203889B6004FD8B4 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		CE88104C203889B6004FD8B4 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
@@ -124,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900B708B2397CE640071EFBF /* SwiftyJSON in Frameworks */,
 				90E0839B21A9E21F00E9651A /* Cocoa.framework in Frameworks */,
 				90E0839D21A9E2BB00E9651A /* libz.tbd in Frameworks */,
 				CE6DC5B420542E7800E20217 /* Adobe AIR_64 in Frameworks */,
@@ -145,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900B708D2397CE740071EFBF /* SwiftyJSON in Frameworks */,
 				CE2BC264205E9CFB00B4251A /* libz.tbd in Frameworks */,
 				CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */,
 			);
@@ -240,21 +238,11 @@
 				CE881044203889B6004FD8B4 /* Extensions */,
 				CE88104C203889B6004FD8B4 /* SwiftController.swift */,
 				CE88104D203889B7004FD8B4 /* SwiftController+FreSwift.swift */,
-				CE88103D203889A1004FD8B4 /* SwiftyJSON */,
 				CE6DC59D20542B9A00E20217 /* Headers */,
 				CE6DC59E20542BA500E20217 /* Misc */,
 				CE88103920388975004FD8B4 /* ZipANE.m */,
 			);
 			path = ZipANE;
-			sourceTree = "<group>";
-		};
-		CE88103D203889A1004FD8B4 /* SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				CE88103E203889A1004FD8B4 /* SwiftyJSON.swift */,
-				CE88103F203889A1004FD8B4 /* SwiftyJSON.h */,
-			);
-			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		CE881044203889B6004FD8B4 /* Extensions */ = {
@@ -294,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE61ECB0205DE97A003B67D9 /* ioapi.h in Headers */,
-				CE6DC5AE20542E3100E20217 /* SwiftyJSON.h in Headers */,
 				CE6DC5B020542E3B00E20217 /* FreMacros.h in Headers */,
 				CE6DC5AF20542E3800E20217 /* ZipANE_oc.h in Headers */,
 				CE61ECAF205DE97A003B67D9 /* unzip.h in Headers */,
@@ -308,7 +295,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE881041203889A2004FD8B4 /* SwiftyJSON.h in Headers */,
 				CE2BC25E205E9CE400B4251A /* crypt.h in Headers */,
 				CE2BC25F205E9CE400B4251A /* zip.h in Headers */,
 				CE2BC260205E9CE400B4251A /* unzip.h in Headers */,
@@ -337,6 +323,9 @@
 			dependencies = (
 			);
 			name = "ZipANE (OSX)";
+			packageProductDependencies = (
+				900B708A2397CE640071EFBF /* SwiftyJSON */,
+			);
 			productName = MLANE;
 			productReference = CE6DC5A620542D5600E20217 /* ZipANE.framework */;
 			productType = "com.apple.product-type.framework";
@@ -374,6 +363,9 @@
 			dependencies = (
 			);
 			name = "ZipANE_FW (iOS)";
+			packageProductDependencies = (
+				900B708C2397CE740071EFBF /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_FW;
 			productReference = CE87F4831FB259FA005CF7DF /* ZipANE_FW.framework */;
 			productType = "com.apple.product-type.framework";
@@ -413,6 +405,9 @@
 				Base,
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
+			packageReferences = (
+				900B70892397CE640071EFBF /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,7 +494,6 @@
 				CE61ECB3205DE97A003B67D9 /* Zip.swift in Sources */,
 				CE2BC25A205E8D5500B4251A /* ZipErrorEvent.swift in Sources */,
 				CE6DC5C020542EC800E20217 /* SwiftController+FreSwift.swift in Sources */,
-				CE6DC5BF20542EC400E20217 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +522,6 @@
 				CE881056203889B7004FD8B4 /* URL.swift in Sources */,
 				CE88105A203889B7004FD8B4 /* SwiftController+FreSwift.swift in Sources */,
 				CE88105B203889B7004FD8B4 /* CompressEvent.swift in Sources */,
-				CE881040203889A2004FD8B4 /* SwiftyJSON.swift in Sources */,
 				CE881051203889B7004FD8B4 /* ZipController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,6 +927,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		900B70892397CE640071EFBF /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		900B708A2397CE640071EFBF /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 900B70892397CE640071EFBF /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		900B708C2397CE740071EFBF /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 900B70892397CE640071EFBF /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE87F45D1FB259C9005CF7DF /* Project object */;
 }

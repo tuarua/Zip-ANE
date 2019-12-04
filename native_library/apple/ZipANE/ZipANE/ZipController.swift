@@ -15,6 +15,7 @@
 
 import Foundation
 import FreSwift
+import SwiftyJSON
 
 class ZipController: NSObject, FreSwiftController {
     public static var TAG = "ZipController"
@@ -31,7 +32,7 @@ class ZipController: NSObject, FreSwiftController {
             do {
                 try Zip.zipFiles(paths: [directory], zipFilePath: path, password: nil,
                              progress: { (bytes, bytesTotal, file) -> Void in
-                                var props: [String: Any] = Dictionary()
+                                var props = [String: Any]()
                                 props["path"] = path.path
                                 props["bytes"] = bytes
                                 props["bytesTotal"] = bytesTotal
@@ -39,16 +40,13 @@ class ZipController: NSObject, FreSwiftController {
                                 self.dispatchEvent(name: CompressProgressEvent.PROGRESS, value: JSON(props).description)
                 },
                              complete: {
-                                var props: [String: Any] = Dictionary()
-                                props["path"] = path.path
-                                self.dispatchEvent(name: CompressEvent.COMPLETE, value: JSON(props).description)
+                                self.dispatchEvent(name: CompressEvent.COMPLETE,
+                                                   value: JSON(["path": path.path]).description)
                 })
 
             } catch let e {
-                var props: [String: Any] = Dictionary()
-                props["path"] = path.path
-                props["message"] = e.localizedDescription
-                self.dispatchEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
+                self.dispatchEvent(name: ZipErrorEvent.ERROR,
+                                   value: JSON(["path": path.path, "message": e.localizedDescription]).description)
             }
         }
     }
@@ -58,7 +56,7 @@ class ZipController: NSObject, FreSwiftController {
             do {
                 try Zip.unzipFile(path, destination: directory, overwrite: true, password: nil, entryPath: entryPath,
                                   progress: { (bytes, bytesTotal, file) -> Void in
-                                    var props: [String: Any] = Dictionary()
+                                    var props = [String: Any]()
                                     props["path"] = path.path
                                     props["bytes"] = bytes
                                     props["bytesTotal"] = bytesTotal
@@ -68,15 +66,12 @@ class ZipController: NSObject, FreSwiftController {
 
                 },
                                   complete: {
-                                    var props: [String: Any] = Dictionary()
-                                    props["path"] = path.path
-                                    self.dispatchEvent(name: ExtractEvent.COMPLETE, value: JSON(props).description)
+                                    self.dispatchEvent(name: ExtractEvent.COMPLETE,
+                                                       value: JSON(["path": path.path]).description)
                 })
             } catch let e {
-                var props: [String: Any] = Dictionary()
-                props["path"] = path.path
-                props["message"] = e.localizedDescription
-                self.dispatchEvent(name: ZipErrorEvent.ERROR, value: JSON(props).description)
+                self.dispatchEvent(name: ZipErrorEvent.ERROR,
+                                   value: JSON(["path": path.path, "message": e.localizedDescription]).description)
             }
         }
     }

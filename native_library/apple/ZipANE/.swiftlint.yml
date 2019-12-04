@@ -13,6 +13,5 @@ type_body_length:
  - 1000 # warning
 
 excluded:
-  - ZipANE/SwiftyJSON/
   - Carthage/
   - Zip/
