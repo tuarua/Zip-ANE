@@ -2,7 +2,7 @@
 
 AneVersion="1.5.0"
 FreKotlinVersion="1.9.1"
-GsonVersion="2.8.4"
+GsonVersion="2.8.6"
 KotlinxCoroutinesVersion="1.2.2"
 
 wget -O android_dependencies/com.tuarua.frekotlin-$FreKotlinVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
