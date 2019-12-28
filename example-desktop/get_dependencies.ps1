@@ -1,5 +1,5 @@
 $AneVersion = "1.5.0"
-$FreSwiftVersion = "4.1.0"
+$FreSwiftVersion = "4.2.0"
 $FreSharpVersion = "2.3.0"
 
 $currentDir = (Get-Item -Path ".\" -Verbose).FullName
