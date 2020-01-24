@@ -129,10 +129,10 @@ You should use AIR 32 for iOS builds
 You will need:
 
 - IntelliJ IDEA / Flash Builder
-- AIR 32.0.0.103 or greater
+- AIR 33.0.2.338+
+- Xcode 11.3
+- [wget](http://rudix.org/packages/wget.html) on macOS
 - Android Studio 3 if you wish to edit the Android source
-- Xcode 10.1
-- wget on macOS
 - Powershell on Windows
 
 ### Task List
