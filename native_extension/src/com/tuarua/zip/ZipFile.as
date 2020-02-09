@@ -13,14 +13,14 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 */
-package com.tuarua.zipane {
+package com.tuarua.zip {
 import com.tuarua.ZipANEContext;
 import com.tuarua.fre.ANEError;
-import com.tuarua.zipane.events.CompressProgressEvent;
-import com.tuarua.zipane.events.ExtractEvent;
-import com.tuarua.zipane.events.ExtractProgressEvent;
-import com.tuarua.zipane.events.CompressEvent;
-import com.tuarua.zipane.events.ZipErrorEvent;
+import com.tuarua.zip.events.CompressProgressEvent;
+import com.tuarua.zip.events.ExtractEvent;
+import com.tuarua.zip.events.ExtractProgressEvent;
+import com.tuarua.zip.events.CompressEvent;
+import com.tuarua.zip.events.ZipErrorEvent;
 import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
 import flash.filesystem.File;
@@ -28,8 +28,6 @@ import flash.filesystem.File;
 public class ZipFile extends EventDispatcher {
     /** @private */
     private var path:String;
-    //private var _numFiles:int;
-    // private var _uncompressedSize:Number = -1;
     /** @private */
     private var file:File;
     /** @private */
@@ -57,10 +55,8 @@ public class ZipFile extends EventDispatcher {
             return;
         }
         ZipANEContext.context.addEventListener(StatusEvent.STATUS, gotEvent);
-        var theRet:* = ZipANEContext.context.call("compress", path, directory.nativePath);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = ZipANEContext.context.call("compress", path, directory.nativePath);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Extracts the zip.
@@ -69,10 +65,8 @@ public class ZipFile extends EventDispatcher {
      */
     public function extract(to:File):void {
         ZipANEContext.context.addEventListener(StatusEvent.STATUS, gotEvent);
-        var theRet:* = ZipANEContext.context.call("extract", path, to.nativePath);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = ZipANEContext.context.call("extract", path, to.nativePath);
+        if (ret is ANEError) throw ret as ANEError;
     }
     /** Extracts the zip.
      *
@@ -81,10 +75,8 @@ public class ZipFile extends EventDispatcher {
      */
     public function extractEntry(entryPath:String, to:File):void {
         ZipANEContext.context.addEventListener(StatusEvent.STATUS, gotEvent);
-        var theRet:* = ZipANEContext.context.call("extractEntry", path, entryPath, to.nativePath);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = ZipANEContext.context.call("extractEntry", path, entryPath, to.nativePath);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** implements File.deleteFile() */
@@ -111,26 +103,8 @@ public class ZipFile extends EventDispatcher {
         return file ? file.exists : false;
     }
 
-   /* // entries.length
-    public function get numFiles():int {
-        return _numFiles;
-    }*/
-
-    // convert to "entries"
-    /*public function get uncompressedSize():Number {
-        if (_uncompressedSize > -1) return _uncompressedSize;
-        if (file == null || !file.exists) return -1;
-        var theRet:* = ZipANEContext.context.call("uncompressedSize", path);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
-        _uncompressedSize = theRet as Number;
-        return _uncompressedSize;
-    }*/
-
     /** @private */
     private function gotEvent(event:StatusEvent):void {
-        // trace(event.level, event.code);
         switch (event.level) {
             case ExtractEvent.COMPLETE:
                 try {

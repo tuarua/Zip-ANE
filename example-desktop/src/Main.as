@@ -1,12 +1,12 @@
 package {
 import com.tuarua.FreSharp;
 import com.tuarua.FreSwift;
-import com.tuarua.ZipANE;
-import com.tuarua.zipane.ZipFile;
-import com.tuarua.zipane.events.CompressEvent;
-import com.tuarua.zipane.events.CompressProgressEvent;
-import com.tuarua.zipane.events.ExtractEvent;
-import com.tuarua.zipane.events.ExtractProgressEvent;
+import com.tuarua.Zip;
+import com.tuarua.zip.ZipFile;
+import com.tuarua.zip.events.CompressEvent;
+import com.tuarua.zip.events.CompressProgressEvent;
+import com.tuarua.zip.events.ExtractEvent;
+import com.tuarua.zip.events.ExtractProgressEvent;
 
 import flash.desktop.NativeApplication;
 import flash.display.Sprite;
@@ -137,7 +137,7 @@ public class Main extends Sprite {
     }
 
     private function onExiting(event:Event):void {
-        ZipANE.dispose();
+        Zip.dispose();
         freSwiftANE.dispose();
         freSharpANE.dispose();
     }
