@@ -138,8 +138,8 @@ public class Main extends Sprite {
 
     private function onExiting(event:Event):void {
         Zip.dispose();
-        freSwiftANE.dispose();
-        freSharpANE.dispose();
+        FreSwift.dispose();
+        FreSharp.dispose();
     }
 
 }
