@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 package com.tuarua {
-public final class ZipANE {
+public final class Zip {
     /** Disposes the ANE */
     public static function dispose():void {
         if (ZipANEContext.context) {

@@ -45,9 +45,9 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun compress(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("compress")
-        val path = String(argv[0]) ?: return null
-        val directory = String(argv[1]) ?: return null
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val path = String(argv[0]) ?: return FreArgException()
+        val directory = String(argv[1]) ?: return FreArgException()
 
         GlobalScope.launch(bgContext) {
             try {
@@ -84,18 +84,18 @@ class KotlinController : FreKotlinMainController {
 
 
     fun extract(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("extract")
-        val path = String(argv[0]) ?: return null
-        val to = String(argv[1]) ?: return null
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val path = String(argv[0]) ?: return FreArgException()
+        val to = String(argv[1]) ?: return FreArgException()
         extract(path, to)
         return null
     }
 
     fun extractEntry(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("extractEntry")
-        val path = String(argv[0]) ?: return null
-        val entryPath = String(argv[1]) ?: return null
-        val to = String(argv[2]) ?: return null
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
+        val path = String(argv[0]) ?: return FreArgException()
+        val entryPath = String(argv[1]) ?: return FreArgException()
+        val to = String(argv[2]) ?: return FreArgException()
         extract(path, to, entryPath)
         return null
     }
@@ -174,7 +174,7 @@ class KotlinController : FreKotlinMainController {
         }
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
     private var _context: FREContext? = null
     override var context: FREContext?

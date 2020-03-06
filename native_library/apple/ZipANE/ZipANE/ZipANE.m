@@ -20,7 +20,7 @@
 #import <ZipANE/ZipANE-Swift.h>
 #else
 #import <ZipANE_FW/ZipANE_FW.h>
-#define FRE_OBJC_BRIDGE TRZIP_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRZIP_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -29,14 +29,11 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 #endif
 @implementation ZipANE_LIB
-SWIFT_DECL(TRZIP) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRZIP)
 
 CONTEXT_INIT(TRZIP) {
     SWIFT_INITS(TRZIP)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRZIP, init)
@@ -44,8 +41,6 @@ CONTEXT_INIT(TRZIP) {
         ,MAP_FUNCTION(TRZIP, extract)
         ,MAP_FUNCTION(TRZIP, extractEntry)
     };
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

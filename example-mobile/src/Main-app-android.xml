@@ -66,6 +66,7 @@
                  <supports-screens android:normalScreens="true"/>
                  <uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
                  <application android:enabled="true">
+                    <meta-data android:name="android.max_aspect" android:value="2.1" />
                     <activity android:excludeFromRecents="false" android:hardwareAccelerated="true">
                         <intent-filter>
                         <action android:name="android.intent.action.MAIN"/>

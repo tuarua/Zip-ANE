@@ -16,5 +16,5 @@
 import Foundation
 
 public struct CompressEvent {
-    public static let COMPLETE: String = "ZIPANE.OnCompressComplete"
+    public static let COMPLETE = "ZIPANE.OnCompressComplete"
 }

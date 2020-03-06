@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.tuarua.zipane.events {
+package com.tuarua.zip.events {
 import flash.events.Event;
 
 public class ExtractEvent extends Event {

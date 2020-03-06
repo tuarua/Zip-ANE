@@ -33,9 +33,9 @@ public class ZipANEContext {
             try {
                 _context = ExtensionContext.createExtensionContext("com.tuarua." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
-                var theRet:* = _context.call("init");
-                if (theRet is ANEError) {
-                    throw theRet as ANEError;
+                var ret:* = _context.call("init");
+                if (ret is ANEError) {
+                    throw ret as ANEError;
                 }
             } catch (e:Error) {
                 trace(e.getStackTrace(), e.message, e.errorID);
