@@ -125,7 +125,7 @@ You will need:
 
 - IntelliJ IDEA
 - AIR 33.0.2.338+
-- Xcode 11.3
+- Xcode 11.4
 - wget on macOS via `brew install wget`
 - Android Studio 3 if you wish to edit the Android source
 - Powershell on Windows

@@ -1,9 +1,9 @@
 #!/bin/sh
 
-AneVersion="1.5.0"
-FreKotlinVersion="1.9.5"
+AneVersion="1.6.0"
+FreKotlinVersion="1.10.0"
 GsonVersion="2.8.6"
-KotlinxCoroutinesVersion="1.3.3"
+KotlinxCoroutinesVersion="1.3.5"
 
 wget -O android_dependencies/com.tuarua.frekotlin-$FreKotlinVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
 wget -O android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane?raw=true

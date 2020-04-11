@@ -1,3 +1,7 @@
+### 1.6.0
+- AND: Updated to FreKotlin 1.10.0
+- OSX/iOS: Updated to FreSwift 4.4.0
+
 ### 1.5.0
 - AND: Updated to FreKotlin 1.9.5
 - AND: Updated to Gson 2.8.6

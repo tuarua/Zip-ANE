@@ -30,16 +30,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 }
 repositories {
     mavenCentral()
     maven {
         url  "https://dl.bintray.com/tuarua/maven"
-    }
-}
-kotlin {
-    experimental {
-        coroutines "enable"
     }
 }
