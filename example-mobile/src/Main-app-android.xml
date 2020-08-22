@@ -13,7 +13,7 @@
     May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <name>ZipANESample</name>
 
-    <versionNumber>1.6.0</versionNumber>
+    <versionNumber>1.7.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
