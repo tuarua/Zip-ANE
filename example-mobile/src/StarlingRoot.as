@@ -7,18 +7,13 @@ import com.tuarua.zip.events.ExtractEvent;
 import com.tuarua.zip.events.ExtractProgressEvent;
 
 import flash.desktop.NativeApplication;
-import flash.display.Bitmap;
 import flash.events.Event;
 import flash.filesystem.File;
-
-import starling.display.Image;
-
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 import starling.text.TextField;
-import starling.textures.Texture;
 import starling.utils.Align;
 
 import views.SimpleButton;
@@ -118,12 +113,6 @@ public class StarlingRoot extends Sprite {
 
         var file:File = File.applicationStorageDirectory.resolvePath("extract/images/adobe-air-logo.png"); ///images/adobe-air-logo.png
         trace("does image exist", file.exists);
-    }
-
-    private function renderImage(bmp:Bitmap):void {
-        var image:Image = new Image(Texture.fromBitmap(bmp));
-        image.touchable = false;
-        addChild(image);
     }
 
     private static function copyEmbedFiles():void {

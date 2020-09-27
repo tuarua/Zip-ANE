@@ -236,4 +236,8 @@ rm -r "$pathtome/platforms/android/com.tuarua.$PROJECTNAME-res"
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*
 
+zip "$pathtome/$PROJECTNAME.ane" -u "air_package.json"
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example-desktop/extensions/$PROJECTNAME.ane"
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example-mobile/extensions/$PROJECTNAME.ane"
+
 echo "Finished."
