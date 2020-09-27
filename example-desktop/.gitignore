@@ -74,3 +74,5 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
+/air_package.resolved.json
+/ios_dependencies/

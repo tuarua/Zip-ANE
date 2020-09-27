@@ -6,51 +6,51 @@ This ANE provides an identical cross platform API for creating and extracting .z
 [ASDocs Documentation](https://tuarua.github.io/asdocs/zipane/index.html)  
 
 -------------
+## Prerequisites
 
-Much time, skill and effort has gone into this. Help support the project
+You will need:
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5UR2T52J633RC)
+- IntelliJ IDEA
+- AIR 33.1.1.217+
+- [.Net Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [AIR-Tools](https://github.com/tuarua/AIR-Tools/)
 
 -------------
 
-### Usage
-```actionscript
-// Create a new zip file. 
-var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme_created.zip"));
-zipFile.addEventListener(CompressProgressEvent.PROGRESS, onCompressProgress);
-zipFile.addEventListener(CompressEvent.COMPLETE, onCompressComplete);
-var zipSource:File = File.applicationStorageDirectory.resolvePath("zipme");
-zipFile.compress(zipSource);
 
-private function onCompressProgress(event:CompressProgressEvent):void {
-    trace(event);
-}
+## Android
 
-private function onCompressComplete(event:CompressEvent):void {
-    trace(event);
-}
+cd into /example-mobile and run the _"air-tools"_ command (You will need [AIR-Tools](https://github.com/tuarua/AIR-Tools/) installed)
 
-// extract a zip file
-var zipFile:ZipFile = new ZipFile(File.applicationStorageDirectory.resolvePath("zipme.zip"));
-zipFile.extract(File.applicationStorageDirectory.resolvePath("output"));
+```shell
+air-tools install
+```
 
-``` 
+-------------
+
+## iOS
+
+
+>N.B. You must use a Mac to build an iOS app using this ANE. Windows is **NOT** supported.
+
+
+This folder, ios_dependencies/device/Frameworks, must be packaged as part of your app when creating the ipa. How this is done will depend on the IDE you are using.
+After the ipa is created unzip it and confirm there is a "Frameworks" folder in the root of the .app package.
 
 -------------
 
 ## Windows
 
-#### The ANE + Dependencies
+### The ANE + Dependencies
 
-From the command line cd into /example-desktop and run:
-```shell
-get_dependencies.ps1
+
+From Terminal cd into /example-desktop and run the _"air-tools"_ command (You will need [AIR-Tools](https://github.com/tuarua/AIR-Tools/) installed)
+
+```bash
+air-tools install
 ```
 
 ##### Windows Installation - Important!
-* The C# binaries(dlls) are now packaged inside the ANE. All of these **need to be deleted** from your AIRSDK.     
-
-* [FreSharp.ane](https://github.com/tuarua/FreSharp/releases) is now a required dependency for Windows. 
 
 * This ANE was built with MS Visual Studio 2015. As such your machine (and user's machines) will need to have Microsoft Visual C++ 2015 Redistributable (x86) runtime installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48145
@@ -58,77 +58,15 @@ https://www.microsoft.com/en-us/download/details.aspx?id=48145
 * This ANE also uses .NET 4.6 Framework. As such your machine (and user's machines) will need to have to have this installed.
 https://www.microsoft.com/en-us/download/details.aspx?id=48130
 
-## macOS
+-------------
 
-#### The ANE + Dependencies
+## macOS
 
 From the command line cd into /example-desktop and run:
 
 ```shell
-bash get_dependencies.sh
+air-tools install
 ```
-
-## Android
-
-#### The ANE + Dependencies
-
-cd into /example-mobile and run:
-- macOS (Terminal)
-```shell
-bash get_android_dependencies.sh
-```
-- Windows Powershell
-```shell
-PS get_android_dependencies.ps1
-```
-
-```xml
-<extensions>
-<extensionID>com.tuarua.frekotlin</extensionID>
-<extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
-<extensionID>com.tuarua.ZipANE</extensionID>
-<extensionID>com.google.code.gson.gson</extensionID>
-...
-</extensions>
-```
-
-You will also need to include the following in your app manifest. Update accordingly.
-
-```xml
-<manifest>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-</manifest>
-```
-
--------------
-
-## iOS
-
-#### The ANE + Dependencies
-
-N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT supported.
-
-From the command line cd into /example-mobile and run:
-
-```shell
-bash get_ios_dependencies.sh
-```
-
-This folder, ios_dependencies/device/Frameworks, must be packaged as part of your app when creating the ipa. How this is done will depend on the IDE you are using.
-After the ipa is created unzip it and confirm there is a "Frameworks" folder in the root of the .app package.
-
-
-### Prerequisites
-
-You will need:
-
-- IntelliJ IDEA
-- AIR 33.0.2.338+
-- Xcode 11.4
-- wget on macOS via `brew install wget`
-- Android Studio 3 if you wish to edit the Android source
-- Powershell on Windows
 
 ### Task List
 - [x] Zip file creation
