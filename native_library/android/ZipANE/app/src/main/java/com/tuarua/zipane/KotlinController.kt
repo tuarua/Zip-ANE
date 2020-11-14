@@ -35,7 +35,7 @@ import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST")
 class KotlinController : FreKotlinMainController {
-    private val bgContext: CoroutineContext = Dispatchers.Default
+    private val ioContext: CoroutineContext = Dispatchers.IO
     private val gson = Gson()
     private var fileList = mutableListOf<Pair<String, Long>>()
     private var bytesTotal: Long = 0L
@@ -48,13 +48,14 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return FreArgException()
         val directory = String(argv[1]) ?: return FreArgException()
-
-        GlobalScope.launch(bgContext) {
+        // TODO place in IO scope
+        GlobalScope.launch(ioContext) {
             try {
                 val fileOutputStream = FileOutputStream(path)
                 val zipOutputStream = ZipOutputStream(fileOutputStream)
                 val directoryFile = File(directory)
-                getFileList(directoryFile.listFiles())
+                val files = directoryFile.listFiles() ?: return@launch
+                getFileList(files)
                 var bytes = 0L
                 for (file in fileList) {
                     val fileName = file.first.substring(directory.length + 1)
@@ -104,7 +105,7 @@ class KotlinController : FreKotlinMainController {
         bytesTotal = 0L
         var bytes = 0L
         var ePath = entryPath
-        GlobalScope.launch(bgContext) {
+        GlobalScope.launch(ioContext) {
             try {
                 createDirectory(to, "")
                 ZipFile(path).use { zip ->
@@ -159,7 +160,8 @@ class KotlinController : FreKotlinMainController {
     private fun getFileList(files: Array<File>) {
         for (file in files) {
             if (file.isDirectory) {
-                getFileList(file.listFiles())
+                val list = file.listFiles() ?: continue
+                getFileList(list)
             } else {
                 bytesTotal += file.length()
                 fileList.add(Pair<String, Long>(file.path, file.length()))
