@@ -1,3 +1,7 @@
+### 1.9.0
+- AND: Updated to FreKotlin 1.42.0
+- macOS/iOS: Updated to FreSwift 5.1.0
+
 ### 1.8.0
 - AND: Updated to FreKotlin 1.41.0
 - macOS/iOS: Updated to FreSwift 5.0.0
